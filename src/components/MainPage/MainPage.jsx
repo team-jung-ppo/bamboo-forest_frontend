@@ -1,10 +1,12 @@
 import React from 'react';
+import { Logo } from '../common/Logo/Logo.jsx';
+import { About } from '../common/About/About.jsx';
 
 const MainPage = () => {
   return (
     <>
-      <div className="logoimg">로고 이미지</div>
-      <div className="serviceInfo">대나무숲 서비스에 대한 설명</div>
+      <Logo />
+      <About />
       <div className="batteryInfo">건전지 정보 ...</div>
       <div className="concepts">
         <div className="concept1">어린아이</div>
