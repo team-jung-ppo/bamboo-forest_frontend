@@ -10,21 +10,24 @@
 
 @media screen and (min-width: 1280px) {
     .about {
-        margin-top: 3em;
         font-size: 2.5em;
     }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
     .about {
-        margin-top: 1.5em;
         font-size: 1.7em;
     }
 }
 
 @media screen and (max-width: 768px) {
     .about {
-        margin-top: 4em;
-        font-size: 1.7em;
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .about {
+        font-size: 1.2em;
     }
 }
