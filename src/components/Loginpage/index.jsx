@@ -1,11 +1,14 @@
-import React from 'react';
+import {Logo} from "../common/Logo/Logo.jsx";
+import {About} from "../common/About/About.jsx";
+import {LoginButton} from "./LoginButton.jsx";
+import styles from "./loginPage.module.css";
 
-const Index = () => {
+export function Loginpage() {
   return (
-    <div>
-      하이
+    <div className={styles.block}>
+      <Logo />
+      <About />
+      <LoginButton />
     </div>
-  );
-};
-
-export default Index;
+  )
+}

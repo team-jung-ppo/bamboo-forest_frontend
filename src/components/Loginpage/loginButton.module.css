@@ -1,0 +1,40 @@
+.block {
+    width: 320px;
+    height: 120px;
+    margin: 0 auto;
+    margin-top: 15vh;
+    text-align: center;
+}
+
+.btn {
+    width: 300px;
+    height: 45px;
+    font-weight: 400;
+    border: none;
+    border-radius: 12px;
+    background: none;
+    text-align: center;
+    cursor: pointer;
+    flex: 2 8;
+    margin: 0.5em 0 0.25em 0;
+}
+
+
+.btnBlock {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    align-items: center;
+}
+
+.imageBlock {
+    height: 100%;
+    flex: 2;
+}
+
+.labelBlock {
+    cursor: pointer;
+    font-size: 14px;
+    flex: 8;
+    margin-right: 18px;
+}
