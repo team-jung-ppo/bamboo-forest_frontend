@@ -24,11 +24,19 @@
     background-color: white;
     box-shadow:  5px 5px 5px #c7c7c7,
     -5px -5px 5px #ffffff;
+}
+
+.block_true {
+    width: 280px;
+    height: 100vh;
+    background-color: white;
+    box-shadow:  5px 5px 5px #c7c7c7,
+    -5px -5px 5px #ffffff;
     animation: FadeIn 0.2s;
 }
 
-.nonBlock {
-    width: 0px;
+.block_false {
+    width: 0;
     position: absolute;
     top: 0;
     bottom: 0;
