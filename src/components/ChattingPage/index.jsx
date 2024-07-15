@@ -1,6 +1,7 @@
 import {SideBar} from "../common/SideBar/SideBar.jsx";
 import styles from "./chatting.module.css";
 import {useState} from "react";
+import {ModalSideBar} from "../common/Modal/ModalSideBar.jsx";
 
 export function ChattingPage() {
   const [open, setOpen] = useState('');
@@ -16,6 +17,7 @@ export function ChattingPage() {
   return (
     <div className={styles.block}>
       <SideBar open={open} onToggleSideBar={onToggleSideBar} />
+      <ModalSideBar open={open} onToggleSideBar={onToggleSideBar} />
       <div style={{ width: `${open === '_true' || !open ? "10px" : "40px"}` }} />
       <div>
         하이하이
