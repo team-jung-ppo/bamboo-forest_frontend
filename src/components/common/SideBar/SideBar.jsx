@@ -1,8 +1,8 @@
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import styles from "./sideBar.module.css";
-import {useState} from "react";
-import {Logo} from "../Logo/Logo.jsx";
+import LogoImg from "../../../assets/bambooForestLogo.png";
+import {AvailableBot} from "./AvailableBot.jsx";
 
 export function SideBar({ open, onToggleSideBar }) {
   return (
@@ -21,6 +21,20 @@ export function SideBar({ open, onToggleSideBar }) {
           />
         }
       </div>
+      {open === '_true' || !open ?
+        <div>
+          <div style={{ textAlign: 'center' }}>
+            <img src={LogoImg} alt='logo' style={{ width: '84px' }} />
+          </div>
+          <div>
+            <p className={styles.title}>사용 가능한 상담봇</p>
+            <div>
+              <AvailableBot />
+            </div>
+          </div>
+        </div> :
+        null
+      }
     </div>
   )
 }

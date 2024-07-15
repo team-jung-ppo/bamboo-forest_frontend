@@ -15,6 +15,8 @@
     }
     to {
         width: 0;
+        transform: translate3d(0, 0, 0);
+        display: none;
     }
 }
 
@@ -32,7 +34,7 @@
     background-color: white;
     box-shadow:  5px 5px 5px #c7c7c7,
     -5px -5px 5px #ffffff;
-    animation: FadeIn 0.2s;
+    animation: FadeIn 0.2s forwards;
 }
 
 .block_false {
@@ -44,6 +46,20 @@
     box-shadow:  5px 5px 5px #c7c7c7,
     -5px -5px 5px #ffffff;
     animation: FadeOut 0.2s;
+}
+
+@media screen and (max-width: 768px) {
+    .block {
+        display: none;
+    }
+
+    .block_true {
+        display: none;
+    }
+
+    .block_false {
+        display: none;
+    }
 }
 
 .arrowBlock {
@@ -59,4 +75,9 @@
 
 .arrow:hover {
     background-color: rgba(233, 233, 233, 0.3);
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
 }
