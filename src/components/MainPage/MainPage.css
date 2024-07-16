@@ -1,0 +1,9 @@
+* {
+	margin-bottom: 30px;
+}
+
+.concepts {
+	display: flex;
+	margin-top: 60px;
+	justify-content: center;
+}

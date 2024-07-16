@@ -1,0 +1,48 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+	margin-left: 20px;
+	margin-right: 20px;
+	border: 1px solid black;
+	border-radius: 12%;
+}
+
+.conceptImg {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+	background-color: #c1bcae;
+	margin: 20px auto;
+}
+
+.conceptName {
+	margin: 20px auto;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.6em;
+}
+
+.features {
+	margin: 1ch auto;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+.cost {
+	margin: 10px auto;
+	text-align: center;
+	font-size: 1em;
+	color: blue;
+}
+
+.chooseBtn {
+	background-color: black;
+	color: white;
+	border-radius: 20px;
+	width: 60%;
+	padding: 10px 20px;
+	font-size: 1em;
+	margin: 40px auto 10px auto;
+}
