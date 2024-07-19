@@ -7,7 +7,7 @@ export function GithubLoginButton() {
   const onGithubLogin = () => {
     try {
       axios.post(
-        `${BACKEND_SERVER_URL}/oauth2/authorization/github?redirect_uri=${import.meta.env.REDIRECT_URI}`
+        `${BACKEND_SERVER_URL}/oauth2/authorization/github?redirect_uri=${import.meta.env.VITE_REDIRECT_URI}`
       )
     } catch (e) {
       console.log(e);
