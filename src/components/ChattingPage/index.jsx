@@ -2,6 +2,7 @@ import {SideBar} from "../common/SideBar/SideBar.jsx";
 import styles from "./chatting.module.css";
 import {useState} from "react";
 import {ModalSideBar} from "../common/Modal/ModalSideBar.jsx";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight.js";
 
 export function ChattingPage() {
   const [open, setOpen] = useState('');
@@ -18,7 +19,16 @@ export function ChattingPage() {
     <div className={styles.block}>
       <SideBar open={open} onToggleSideBar={onToggleSideBar} />
       <ModalSideBar open={open} onToggleSideBar={onToggleSideBar} />
-      <div style={{ width: `${open === '_true' || !open ? "10px" : "40px"}` }} />
+      <div style={{ width: `${open === '_true' || !open ? "10px" : "50px"}` }} >
+        {open === '_false' ?
+          <KeyboardDoubleArrowRightIcon
+            className={styles.arrow}
+            style={{ fontSize: "36px", marginLeft: "10px" }}
+            onClick={onToggleSideBar}
+          /> :
+          null
+        }
+      </div>
       <div>
         하이하이
       </div>
