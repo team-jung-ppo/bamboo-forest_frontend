@@ -1,13 +1,12 @@
 import styles from "../../Loginpage/loginButton.module.css";
 import GithubSymbol from "../../../assets/githubLoginSymbol.png";
 import axios from "axios";
-import {BACKEND_SERVER_URL} from "../../../consts/url.js";
 
 export function GithubLoginButton() {
   const onGithubLogin = () => {
     try {
       axios.post(
-        `${BACKEND_SERVER_URL}/oauth2/authorization/github?redirect_uri=${import.meta.env.VITE_REDIRECT_URI}`
+        `${import.meta.env.VITE_WAS_URL}/oauth2/authorization/github?redirect_uri=${import.meta.env.VITE_REDIRECT_URI}`
       )
     } catch (e) {
       console.log(e);

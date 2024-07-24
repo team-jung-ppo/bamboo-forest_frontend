@@ -3,6 +3,7 @@ import styles from "./chatting.module.css";
 import {useState} from "react";
 import {ModalSideBar} from "../common/Modal/ModalSideBar.jsx";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight.js";
+import {ChattingContainer} from "./ChattingContainer.jsx";
 
 export function ChattingPage() {
   const [open, setOpen] = useState('');
@@ -30,7 +31,7 @@ export function ChattingPage() {
         }
       </div>
       <div>
-        하이하이
+        <ChattingContainer message={'테스트메시지테스트메시지테스트메시지테스트메시지'} />
       </div>
     </div>
   )
