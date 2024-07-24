@@ -1,0 +1,25 @@
+.batteriesInfo {
+  margin: 20px;
+  padding: 20px;
+  background-color: #e8e2d1;
+  width: 16em;
+  border-radius: 20px;
+}
+
+.batteriesCnt {
+  text-align: center;
+  font-size: large;
+}
+
+.chargeBtn {
+  width: 12em;
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  padding: 10px 25px;
+  margin-top: 15px;
+  border-radius: 20px;
+  font-size: large;
+  font-weight: bold;
+}
