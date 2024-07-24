@@ -6,9 +6,11 @@ export function Batteries() {
 	const [battery, setBattery] = useState(0);
 
 	useEffect(() => {
-		axios.get('https://{{url}}/api/batteries/info').then((responce) => {
-			setBattery(responce.data);
-		});
+		axios
+			.get('https://54.180.99.46:8080/api/members/profile')
+			.then((responce) => {
+				setBattery(responce.batteryCount);
+			});
 	});
 	return (
 		<>
