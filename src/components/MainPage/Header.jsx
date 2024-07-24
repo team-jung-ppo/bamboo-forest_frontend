@@ -1,31 +1,31 @@
-import './Header.css';
+import styles from './header.module.css';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 
 function Header() {
 	return (
-		<div className="header">
+		<div className={styles.header}>
 			<img
-				className="profileImg"
+				className={styles.profileImg}
 				src="src/assets/bambooForestLogo.png"
 				alt=""
 			/>
-			<div className="profileInfo">
+			<div className={styles.profileInfo}>
 				<h3>아저씨</h3>
 				<span>Activate 35,000 people</span>
 			</div>
 
-			<div className="rightHeader">
-				<span className="buyBattery">
+			<div className={styles.rightHeader}>
+				<span className={styles.buyBattery}>
 					Buy Battery
 					<BoltOutlinedIcon />
 				</span>
-				<span className="help">
+				<span className={styles.help}>
 					Help
 					<HelpOutlineOutlinedIcon />
 				</span>
-				<span className="buyChatbot">
+				<span className={styles.buyChatbot}>
 					Buy ChatBot
 					<LinkOutlinedIcon />
 				</span>

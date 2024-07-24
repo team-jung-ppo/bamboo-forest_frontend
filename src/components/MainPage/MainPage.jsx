@@ -3,7 +3,7 @@ import { Logo } from '../common/Logo/Logo.jsx';
 import { About } from '../common/About/About.jsx';
 import { Batteries } from '../common/Batteries/Batteries.jsx';
 import Concepts from '../common/Concepts/Concepts.jsx';
-import './MainPage.css';
+import styles from './mainPage.module.css';
 
 const MainPage = () => {
 	return (
@@ -11,7 +11,7 @@ const MainPage = () => {
 			<Batteries />
 			<Logo />
 			<About />
-			<div className="concepts">
+			<div className={styles.concepts}>
 				<Concepts
 					img="src/assets/bambooForestLogo.png"
 					name="어린아이"
