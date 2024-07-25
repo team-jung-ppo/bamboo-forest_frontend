@@ -16,7 +16,7 @@ export function SideBar({ open, onToggleSideBar }) {
       </div>
       <div>
         <div style={{ textAlign: 'center' }}>
-          <img src={LogoImg} alt='logo' style={{ width: '84px' }} />
+          <img src={LogoImg} alt='logo' style={{ width: '84px', height: '84px' }} />
         </div>
         <div>
           <p className={styles.title}>사용 가능한 상담봇</p>
