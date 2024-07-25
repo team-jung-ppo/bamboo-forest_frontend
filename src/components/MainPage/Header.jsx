@@ -6,14 +6,16 @@ import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 function Header() {
 	return (
 		<div className={styles.header}>
-			<img
-				className={styles.profileImg}
-				src="src/assets/bambooForestLogo.png"
-				alt=""
-			/>
-			<div className={styles.profileInfo}>
-				<h3>아저씨</h3>
-				<span>Activate 35,000 people</span>
+			<div className={styles.profile}>
+				<img
+					className={styles.profileImg}
+					src="src/assets/bambooForestLogo.png"
+					alt=""
+				/>
+				<div className={styles.profileInfo}>
+					<h3>아저씨</h3>
+					<span>Activate 35,000 people</span>
+				</div>
 			</div>
 
 			<div className={styles.rightHeader}>
@@ -29,7 +31,7 @@ function Header() {
 					Buy ChatBot
 					<LinkOutlinedIcon />
 				</span>
-				<span>Greg Gregor</span>
+				<span className={styles.userInfo}>Greg Gregor</span>
 			</div>
 		</div>
 	);
