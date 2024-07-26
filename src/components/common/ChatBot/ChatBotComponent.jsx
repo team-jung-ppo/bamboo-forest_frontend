@@ -7,7 +7,7 @@ function ChatBotComponent(props) {
 			<div className={styles.name}>{props.name}</div>
 			<div className={styles.description}>{props.description}</div>
 			<div className={styles.cost}>{props.cost}</div>
-			<button>구매하기</button>
+			<button className={styles.buyBtn}>구매하기</button>
 		</div>
 	);
 }
