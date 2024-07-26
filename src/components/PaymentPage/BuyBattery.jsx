@@ -29,7 +29,11 @@ function BuyBattery() {
 			</div>
 			<div className={styles.buybatterylist}>
 				{buyBatteryData.map((data, index) => (
-					<BuyBatteryComponent batterynum={data.batterynum} cost={data.cost} />
+					<BuyBatteryComponent
+						key={index}
+						batterynum={data.batterynum}
+						cost={data.cost}
+					/>
 				))}
 			</div>
 		</div>
