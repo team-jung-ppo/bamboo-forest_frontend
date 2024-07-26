@@ -8,6 +8,7 @@ import {
 import { Loginpage } from './components/Loginpage';
 import { ChattingPage } from './components/ChattingPage/index.jsx';
 import BuyBattery from './components/PaymentPage/BuyBattery.jsx';
+import BuyChatbot from './components/PaymentPage/BuyChatbot.jsx';
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -22,6 +23,7 @@ export const router = createBrowserRouter(
 			<Route path="/login" element={<Loginpage />} />
 			<Route path="/chatting" element={<ChattingPage />} />
 			<Route path="/paybattery" element={<BuyBattery />} />
+			<Route path="/buychatbot" element={<BuyChatbot />} />
 		</Route>,
 	),
 );
