@@ -10,6 +10,7 @@ import { ChattingPage } from './components/ChattingPage/index.jsx';
 import BuyBattery from './components/PaymentPage/BuyBattery.jsx';
 import BuyChatbot from './components/PaymentPage/BuyChatbot.jsx';
 import HelpPage from './components/HelpPage/HelpPage.jsx';
+import UserInfo from './components/UserInfoPage/UserInfo.jsx';
 
 import OauthRedirectPage from './components/Loginpage/OauthRedirectPage.jsx';
 
@@ -29,6 +30,7 @@ export const router = createBrowserRouter(
 			<Route path="/paybattery" element={<BuyBattery />} />
 			<Route path="/buychatbot" element={<BuyChatbot />} />
 			<Route path="/help" element={<HelpPage />} />
+			<Route path="/userinfo" element={<UserInfo />} />
 		</Route>,
 	),
 );
