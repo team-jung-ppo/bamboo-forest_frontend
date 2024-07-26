@@ -2,9 +2,41 @@ import styles from './header.module.css';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { getCookie } from '../../services/cookie';
+import { useState } from 'react';
 
 function Header() {
+	const [userinfo, setUserinfo] = useState([]);
+	const fetchUserInfo = async () => {
+		try {
+			const accessToken = getCookie('accessToken');
+			const response = await axios.get(
+				`${import.meta.env.VITE_WAS_URL}/api/members/profile`,
+				{
+					withCredentials: true,
+					headers: {
+						Authorization: `${accessToken}`,
+					},
+				},
+			);
+			const userData = response.data;
+			setUserinfo(userData);
+		} catch (e) {
+			if (axios.isAxiosError(e)) {
+				console.error('Axios error:', e.response?.data || e.message);
+			} else {
+				console.error('Unknown error:', e);
+			}
+		}
+	};
+
+	useEffect(() => {
+		fetchUserInfo();
+	}, []);
+
 	return (
 		<div className={styles.header}>
 			<div className={styles.profile}>
@@ -39,7 +71,7 @@ function Header() {
 					</span>
 				</Link>
 				<Link to="/userInfo">
-					<span className={styles.userInfo}>Greg Gregor</span>
+					<span className={styles.userInfo}>{userinfo.username}</span>
 				</Link>
 			</div>
 		</div>
