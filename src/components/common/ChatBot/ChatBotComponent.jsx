@@ -3,10 +3,11 @@ import styles from './chatbotcomponent.module.css';
 function ChatBotComponent(props) {
 	return (
 		<div className={styles.container}>
-			<div className={styles.icon}>{props.icon}</div>
-			<div className={styles.title}>{props.title}</div>
-			<div className={styles.feature}>{props.features}</div>
+			<div className={styles.img}>{props.imgUrl}</div>
+			<div className={styles.name}>{props.name}</div>
+			<div className={styles.description}>{props.description}</div>
 			<div className={styles.cost}>{props.cost}</div>
+			<button>구매하기</button>
 		</div>
 	);
 }
