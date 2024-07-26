@@ -8,6 +8,8 @@ import PayedListComponent from '../common/PayedList/PayedListComponent';
 
 function UserInfo() {
 	const [userinfo, setUserinfo] = useState([]);
+	const [payedBatteryInfo, setPayedBatteryInfo] = useState([]);
+
 	const fetchUserInfo = async () => {
 		try {
 			const accessToken = getCookie('accessToken');
@@ -31,8 +33,32 @@ function UserInfo() {
 		}
 	};
 
+	const fetchPayedBatteryInfo = async () => {
+		try {
+			const accessToken = getCookie('accessToken');
+			const response = await axios.get(
+				`${import.meta.env.VITE_WAS_URL}/api/payments`,
+				{
+					withCredentials: true,
+					headers: {
+						Authorization: `${accessToken}`,
+					},
+				},
+			);
+			const userData = response.data;
+			setPayedBatteryInfo(userData);
+		} catch (e) {
+			if (axios.isAxiosError(e)) {
+				console.error('Axios error:', e.response?.data || e.message);
+			} else {
+				console.error('Unknown error:', e);
+			}
+		}
+	};
+
 	useEffect(() => {
 		fetchUserInfo();
+		fetchPayedBatteryInfo();
 	}, []);
 	return (
 		<div className={styles.container}>
@@ -43,7 +69,17 @@ function UserInfo() {
 			<div className={styles.name}>{userinfo.username} 님 환영합니다!</div>
 			<div className={styles.batteryInfo}>
 				<h2>배터리 결제내역</h2>
-				<PayedListComponent />
+				{payedBatteryInfo.map((data, index) => (
+					<PayedListComponent
+						key={index}
+						productName={data.batteryItem.name}
+						cost={data.batteryItem.price}
+						count={data.batteryInfo.count}
+						payments={data.provider}
+						payedAt={data.createdAt}
+					/>
+				))}
+				{/* <PayedListComponent /> */}
 			</div>
 			<div className={styles.chatbotInfo}>
 				<h2>챗봇 정보</h2>
