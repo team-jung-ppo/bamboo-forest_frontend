@@ -10,6 +10,8 @@ import { ChattingPage } from './components/ChattingPage/index.jsx';
 import BuyBattery from './components/PaymentPage/BuyBattery.jsx';
 import BuyChatbot from './components/PaymentPage/BuyChatbot.jsx';
 
+import OauthRedirectPage from './components/Loginpage/OauthRedirectPage.jsx';
+
 export const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route
@@ -21,6 +23,7 @@ export const router = createBrowserRouter(
 			}
 		>
 			<Route path="/login" element={<Loginpage />} />
+			<Route path="/redirect" element={<OauthRedirectPage />} />
 			<Route path="/chatting" element={<ChattingPage />} />
 			<Route path="/paybattery" element={<BuyBattery />} />
 			<Route path="/buychatbot" element={<BuyChatbot />} />

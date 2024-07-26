@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { KAKAO_AUTH_URL, KAKAO_LOGOUT_URL } from '../../consts/kakao';
+import { KAKAO_AUTH_URL, KAKAO_LOGOUT_URL } from '../../constants/kakao';
 
 export function useKakaoOAuth() {
   const requestAuthorization = () => {
