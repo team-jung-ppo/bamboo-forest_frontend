@@ -1,12 +1,12 @@
-import './BuyBatteryComponent.css';
+import styles from './buyBatteryComponent.module.css';
 
 function BuyBatteryComponent(props) {
 	return (
-		<div className="batteryComponent">
-			<div className="batteryIcon">🔋</div>
-			<div className="numOfBattery">{props.batterynum} 건전지</div>
-			<div className="costOfBattery">{props.cost} 원</div>
-			<button className="selectBtn">선택하기</button>
+		<div className={styles.batteryComponent}>
+			<div className={styles.batteryIcon}>🔋</div>
+			<div className={styles.numOfBattery}>{props.batterynum} 건전지</div>
+			<div className={styles.costOfBattery}>{props.cost} 원</div>
+			<button className={styles.selectBtn}>선택하기</button>
 		</div>
 	);
 }

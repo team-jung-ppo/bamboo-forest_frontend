@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Concepts.css';
+import styles from './concepts.module.css';
 
 function Concepts(props) {
 	const [battery, setBattery] = useState(0);
@@ -16,12 +16,12 @@ function Concepts(props) {
 		if (battery < props.cost) setModal(true);
 	};
 	return (
-		<div className="container">
-			<img src={props.img} alt="" className="conceptImg" />
-			<div className="conceptName">{props.name}</div>
-			<div className="features">{props.features}</div>
-			<div className="cost">{props.cost} 건전지 필요</div>
-			<button onClick={checkAvailable} className="chooseBtn">
+		<div className={styles.container}>
+			<img src={props.img} alt="" className={styles.conceptImg} />
+			<div className={styles.conceptName}>{props.name}</div>
+			<div className={styles.features}>{props.features}</div>
+			<div className={styles.cost}>{props.cost} 건전지 필요</div>
+			<button onClick={checkAvailable} className={styles.chooseBtn}>
 				선택하기
 			</button>
 		</div>

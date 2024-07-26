@@ -1,0 +1,46 @@
+.header {
+	padding: 1rem;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100px;
+}
+
+.profile {
+	display: flex;
+}
+
+.profileImg {
+	width: 6rem;
+	height: 6rem;
+}
+
+.rightHeader {
+	display: flex;
+	margin-left: auto;
+	align-items: center;
+}
+
+.rightHeader span {
+	margin: 2rem;
+}
+
+.buyBattery {
+	color: #d69d0b;
+}
+
+.profileInfo {
+	margin: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 1rem;
+}
+
+@media (max-width: 1100px) {
+	.help,
+	.userInfo {
+		display: none;
+	}
+}

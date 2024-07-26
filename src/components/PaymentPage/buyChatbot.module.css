@@ -1,0 +1,15 @@
+.batteriesContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.buychatbotlist {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+.logoandtxt {
+	display: flex;
+	justify-content: center;
+}
