@@ -1,16 +1,7 @@
 import styles from "../../Loginpage/loginButton.module.css";
 import KakaoSymbol from "../../../assets/kakaoLoginSymbol.png"
-import client from "../../../services/api/axios.js";
 
 export function KakaoLoginButton() {
-  const onKakaoLogin = async () => {
-    try {
-      await client.post(`/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/${import.meta.env.VITE_REDIRECT_URI}`, null);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
   return (
     <form name="kakaoLogin" action={`${import.meta.env.VITE_WAS_URL}/oauth2/authorization/kakao?redirect_uri=${import.meta.env.VITE_REDIRECT_URI}`} method="POST">
       <button
