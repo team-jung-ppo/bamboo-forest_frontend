@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getCookie } from '../../../services/cookie';
 import { useState } from 'react';
+import { Batteries } from '../Batteries/Batteries';
 
 function Header() {
 	const [userinfo, setUserinfo] = useState([]);
@@ -73,6 +74,7 @@ function Header() {
 				<Link to="/userInfo">
 					<span className={styles.userInfo}>{userinfo.username}</span>
 				</Link>
+				<Batteries />
 			</div>
 		</div>
 	);

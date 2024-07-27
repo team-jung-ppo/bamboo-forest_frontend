@@ -64,7 +64,6 @@ function UserInfo() {
 		<div className={styles.container}>
 			<div className={styles.topcontainer}>
 				<Header />
-				<Batteries />
 			</div>
 			<div className={styles.name}>{userinfo.username} 님 환영합니다!</div>
 			<div className={styles.batteryInfo}>

@@ -1,18 +1,18 @@
 .batteriesInfo {
-	border: 2px solid black;
+	/* border: 2px solid black; */
 	margin: 20px;
 	padding: 20px;
-	width: 16em;
+	width: 10em;
 	border-radius: 20px;
 }
 
 .batteriesCnt {
 	text-align: center;
-	font-size: large;
+	font-size: 0.9rem;
 }
 
 .chargeBtn {
-	width: 12em;
+	width: 11em;
 	display: block;
 	margin: 0 auto;
 	background-color: black;
@@ -20,6 +20,6 @@
 	padding: 10px 25px;
 	margin-top: 15px;
 	border-radius: 20px;
-	font-size: large;
+	font-size: 0.9rem;
 	font-weight: bold;
 }
