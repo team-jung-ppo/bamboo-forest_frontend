@@ -3,8 +3,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import ChatBotComponent from '../common/ChatBot/ChatBotComponent';
 import { Batteries } from '../common/Batteries/Batteries';
-import Header from '../MainPage/Header';
-import client from '../../services/api/axios';
+import Header from '../common/Header/Header';
 import { getCookie } from '../../services/cookie';
 import { useState } from 'react';
 

@@ -1,5 +1,5 @@
 import styles from './helppage.module.css';
-import Header from '../MainPage/Header';
+import Header from '../common/Header/Header';
 
 function HelpPage() {
 	return (

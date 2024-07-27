@@ -1,5 +1,5 @@
 import { Batteries } from '../common/Batteries/Batteries';
-import Header from '../MainPage/Header';
+import Header from '../common/Header/Header';
 import styles from './userinfo.module.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';

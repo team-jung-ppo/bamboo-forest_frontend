@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ModalSideBar } from '../common/Modal/ModalSideBar.jsx';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight.js';
 import { ChattingContainer } from './ChattingContainer.jsx';
-import Header from '../MainPage/Header.jsx';
+import Header from '../common/Header/Header.jsx';
 
 export function ChattingPage() {
 	const [open, setOpen] = useState('');

@@ -1,7 +1,7 @@
 import styles from './buyBattery.module.css';
 import { Batteries } from '../common/Batteries/Batteries';
 import BuyBatteryComponent from '../common/Batteries/BuyBatteryComponent';
-import Header from '../MainPage/Header';
+import Header from '../common/Header/Header';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { getCookie } from '../../services/cookie';

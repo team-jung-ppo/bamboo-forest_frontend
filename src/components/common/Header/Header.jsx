@@ -5,7 +5,7 @@ import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { getCookie } from '../../services/cookie';
+import { getCookie } from '../../../services/cookie';
 import { useState } from 'react';
 
 function Header() {
