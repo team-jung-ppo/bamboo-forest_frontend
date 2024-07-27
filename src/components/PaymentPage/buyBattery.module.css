@@ -22,12 +22,6 @@
 	margin-bottom: 3rem;
 }
 
-img {
-	padding: 3rem;
-	width: 8rem;
-	height: 8rem;
-}
-
 .buybatterylist {
 	display: flex;
 	flex-wrap: wrap;

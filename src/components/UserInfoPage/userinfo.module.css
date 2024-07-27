@@ -1,3 +1,46 @@
 .topcontainer {
 	display: flex;
 }
+
+.name {
+	margin: 30px 20px;
+	font-weight: bold;
+	font-size: 3rem;
+}
+
+.batteryPayedListLabel {
+	margin: 30px 20px;
+	font-weight: bold;
+	font-size: 1.8rem;
+}
+.batteryPayedList {
+	margin: 30px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.chatbotInfoLable {
+	margin: 30px 20px;
+	font-weight: bold;
+	font-size: 1.8rem;
+}
+.chatbotInfoList {
+	margin: 30px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.chatBotPayedLabel {
+	margin: 30px 20px;
+	font-weight: bold;
+	font-size: 1.8rem;
+}
+
+.chatBotPayedList {
+	margin: 30px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
