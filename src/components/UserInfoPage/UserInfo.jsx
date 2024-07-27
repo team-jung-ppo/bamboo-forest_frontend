@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getCookie } from '../../services/cookie';
 import PayedListComponent from '../common/PayedList/PayedListComponent';
+import MyChatBotList from '../common/PayedList/MyChatBotList';
+import ChatBotPayedList from '../common/PayedList/ChatBotPayedList';
 
 function UserInfo() {
 	const [userinfo, setUserinfo] = useState([]);
@@ -216,28 +218,26 @@ function UserInfo() {
 				<div className={styles.chatbotInfo}>
 					<div className={styles.chatbotInfoLable}>소유한 챗봇 정보</div>
 					<div className={styles.chatbotInfoList}>
-						{dummyPayedBatteryInfo.map((data, index) => (
-							<PayedListComponent
+						{dummyUserInfo.chatBots.map((data, index) => (
+							<MyChatBotList
 								key={index}
-								productName={data.batteryItem.name}
-								cost={data.batteryItem.price}
-								count={data.batteryItem.count}
-								payments={data.provider}
-								payedAt={data.createdAt}
+								name={data.name}
+								description={data.description}
+								imgUrl={data.imageUrl}
 							/>
 						))}
 					</div>
 				</div>
-				<div className={styles.chatBotPayedList}>
+				<div className={styles.chatBotPayedInfo}>
 					<div className={styles.chatBotPayedLabel}>챗봇 구매내역</div>
 					<div className={styles.chatBotPayedList}>
-						{dummyPayedBatteryInfo.map((data, index) => (
-							<PayedListComponent
-								key={index}
-								productName={data.batteryItem.name}
-								cost={data.batteryItem.price}
-								count={data.batteryItem.count}
-								payments={data.provider}
+						{dummyPayedChatBotInfo.map((data, index) => (
+							<ChatBotPayedList
+								name={data.chatBotItem.name}
+								description={data.chatBotItem.description}
+								imgUrl={data.chatBotItem.imageUrl}
+								amount={data.amount}
+								price={data.chatBotItem.price}
 								payedAt={data.createdAt}
 							/>
 						))}

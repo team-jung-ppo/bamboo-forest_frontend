@@ -15,6 +15,9 @@
 }
 .batteryPayedList {
 	margin: 30px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .chatbotInfoLable {
@@ -24,6 +27,9 @@
 }
 .chatbotInfoList {
 	margin: 30px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .chatBotPayedLabel {
@@ -34,4 +40,7 @@
 
 .chatBotPayedList {
 	margin: 30px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
