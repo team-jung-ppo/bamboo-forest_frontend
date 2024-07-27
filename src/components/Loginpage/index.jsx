@@ -18,9 +18,16 @@ export function Loginpage() {
 
   return (
     <div className={styles.block}>
-      <Logo />
-      <About />
-      <LoginButton />
+      <div className={styles.logoBlock}>
+        <Logo/>
+        <About/>
+        <div className={styles.account}>
+          대나무숲 서비스 부연설명
+        </div>
+      </div>
+      <div className={styles.btnBlock}>
+        <LoginButton/>
+      </div>
     </div>
   )
 }

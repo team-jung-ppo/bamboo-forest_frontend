@@ -1,4 +1,3 @@
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import styles from "./sideBar.module.css";
 import LogoImg from "../../../assets/bambooForestLogo.png";
@@ -15,14 +14,16 @@ export function SideBar({ open, onToggleSideBar }) {
         />
       </div>
       <div>
-        <div style={{ textAlign: 'center' }}>
-          <img src={LogoImg} alt='logo' style={{ width: '84px', height: '84px' }} />
+        <div className={styles.logo} style={{textAlign: 'center'}}>
+          <img src={LogoImg} alt='logo' style={{width: '84px', height: '84px'}}/>
         </div>
-        <div>
-          <p className={styles.title}>사용 가능한 상담봇</p>
-          <div>
-            <AvailableBot />
-          </div>
+        <p className={styles.title}>사용 가능한 상담봇</p>
+        <div className={styles.content}>
+          <AvailableBot/>
+          <AvailableBot/>
+          <AvailableBot/>
+          <AvailableBot/>
+          <AvailableBot/>
         </div>
       </div>
     </div>
