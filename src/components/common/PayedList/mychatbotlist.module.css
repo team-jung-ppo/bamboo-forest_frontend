@@ -1,0 +1,23 @@
+.container {
+	border: 2px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	margin: 10px;
+}
+
+.img {
+	padding: 1rem;
+	width: 3rem;
+	height: 3rem;
+	margin: 0 auto;
+}
+
+.name {
+	font-size: 1.6rem;
+	font-weight: bold;
+	margin: 10px;
+}
+
+.description {
+	margin: 10px;
+}
