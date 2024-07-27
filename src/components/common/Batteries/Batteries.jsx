@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import styles from './batteries.module.css';
 
 export function Batteries() {
@@ -19,7 +19,11 @@ export function Batteries() {
 				<div className={styles.batteriesCnt}>
 					🔋 현재 보유한 건전지 {battery}개
 				</div>
-				<button className={styles.chargeBtn}>건전지 충전하기</button>
+				<div className={styles.chargeBtnContainer}>
+					<Link to="/paybattery">
+						<span className={styles.chargeBtn}>건전지 충전하기</span>
+					</Link>
+				</div>
 			</div>
 		</>
 	);
