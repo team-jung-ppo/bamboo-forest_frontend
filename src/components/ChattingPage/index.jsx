@@ -30,7 +30,7 @@ export function ChattingPage() {
 					/>
 				) : null}
 			</div>
-			<div>
+			<div className={styles.content}>
 				<Header />
 				<ChattingContainer
 					message={'테스트메시지테스트메시지테스트메시지테스트메시지'}
