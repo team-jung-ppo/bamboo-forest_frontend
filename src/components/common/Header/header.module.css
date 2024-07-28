@@ -2,7 +2,7 @@
 	padding: 1rem;
 	display: flex;
 	align-items: center;
-	width: 100%;
+	width: auto;
 	height: 5rem;
 
 	box-shadow: 5px 5px 5px #c7c7c7, -5px -5px 5px #ffffff;
@@ -30,7 +30,42 @@
 }
 
 .buyBattery {
+	margin: 10px;
+	display: flex;
 	color: #d69d0b;
+}
+
+.buyBattery > div {
+	margin: 0 0.2rem;
+}
+
+.help {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.help > div {
+	margin: 0 0.2rem;
+}
+
+.buyChatbot {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.userInfo {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.userInfo > div {
+	margin: 0 0.2rem;
 }
 
 .profileInfo {
@@ -42,8 +77,11 @@
 }
 
 @media (max-width: 1100px) {
-	.help,
-	.userInfo {
+	.buyBatteryTxt,
+	.helpTxt,
+	.buyChatbotTxt,
+	.userinfoTxt,
+	.batteryinfo {
 		display: none;
 	}
 }

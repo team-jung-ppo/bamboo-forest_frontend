@@ -2,6 +2,7 @@ import styles from './header.module.css';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
+import PersonIcon from '@mui/icons-material/Person';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -54,27 +55,40 @@ function Header() {
 
 			<div className={styles.rightHeader}>
 				<Link to="/paybattery">
-					<span className={styles.buyBattery}>
-						Buy Battery
-						<BoltOutlinedIcon />
-					</span>
+					<div className={styles.buyBattery}>
+						<div className={styles.buyBatteryTxt}>Buy Battery</div>
+						<div className={styles.buyBatteryIcon}>
+							<BoltOutlinedIcon />
+						</div>
+					</div>
 				</Link>
 				<Link to="/help">
-					<span className={styles.help}>
-						Help
-						<HelpOutlineOutlinedIcon />
-					</span>
+					<div className={styles.help}>
+						<div className={styles.helpTxt}>Help</div>
+						<div className={styles.helpIcon}>
+							<HelpOutlineOutlinedIcon />
+						</div>
+					</div>
 				</Link>
 				<Link to="/buychatbot">
-					<span className={styles.buyChatbot}>
-						Buy ChatBot
-						<LinkOutlinedIcon />
-					</span>
+					<div className={styles.buyChatbot}>
+						<div className={styles.buyChatbotTxt}>Buy ChatBot</div>
+						<div className={styles.buyChatbotIcon}>
+							<LinkOutlinedIcon />
+						</div>
+					</div>
 				</Link>
 				<Link to="/userInfo">
-					<span className={styles.userInfo}>{userinfo.username}</span>
+					<div className={styles.userInfo}>
+						<div className={styles.userinfoIcon}>
+							<PersonIcon />
+						</div>
+						<div className={styles.userinfoTxt}>{userinfo.username}</div>
+					</div>
 				</Link>
-				<Batteries />
+				<div className={styles.batteryinfo}>
+					<Batteries />
+				</div>
 			</div>
 		</div>
 	);
