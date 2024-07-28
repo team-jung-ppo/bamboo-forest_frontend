@@ -2,8 +2,13 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 import styles from "./sideBar.module.css";
 import LogoImg from "../../../assets/bambooForestLogo.png";
 import {AvailableBot} from "./AvailableBot.jsx";
+import {usePurchaseChatbots} from "../../../hooks/purchaseChatbots/usePurchaseChatbots.js";
 
 export function SideBar({ open, onToggleSideBar }) {
+  const availableBots = usePurchaseChatbots();
+
+  console.log(availableBots);
+
   return (
     <div className={!open ? styles.block : open === '_true' ? styles.block_true : styles.block_false}>
       <div className={styles.arrowBlock}>
@@ -20,10 +25,11 @@ export function SideBar({ open, onToggleSideBar }) {
         <p className={styles.title}>사용 가능한 상담봇</p>
         <div className={styles.content}>
           <AvailableBot/>
-          <AvailableBot/>
-          <AvailableBot/>
-          <AvailableBot/>
-          <AvailableBot/>
+          {
+            availableBots && availableBots.map((bot, id) => {
+              <AvailableBot id={id} name={bot.chatBotItem.name} url={bot.chatBotItem.url} description={bot.chatBotItem.description} imageUrl={bot.chatBotItem.imageUrl} price={bot.chatBotItem.price} />
+            })
+          }
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ import {ChattingContainer} from "./ChattingContainer.jsx";
 import {useNavigate} from "react-router-dom";
 import {getCookie} from "../../services/cookie.js";
 import Swal from "sweetalert2";
-import Header from "../MainPage/Header.jsx";
+import Header from "../common/Header/Header.jsx";
 
 export function ChattingPage() {
   const [open, setOpen] = useState('');
@@ -47,7 +47,7 @@ export function ChattingPage() {
       <div className={styles.isModal}>
         <ModalSideBar open={open} onToggleSideBar={onToggleSideBar} />
       </div>
-      <div style={{ width: `${open === '_true' ? "10px" : "50px"}` }} >
+      <div style={{ width: `${open === '_true' ? "0px" : "50px"}` }} >
         {open === '_false' || !open ?
           <KeyboardDoubleArrowRightIcon
             className={styles.arrow}

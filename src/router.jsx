@@ -13,6 +13,7 @@ import HelpPage from './components/HelpPage/HelpPage.jsx';
 import UserInfo from './components/UserInfoPage/UserInfo.jsx';
 
 import OauthRedirectPage from './components/Loginpage/OauthRedirectPage.jsx';
+import {CheckoutPage} from "./components/PaymentPage/CheckoutPage.jsx";
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -28,6 +29,7 @@ export const router = createBrowserRouter(
 			<Route path="/redirect" element={<OauthRedirectPage />} />
 			<Route path="/chatting" element={<ChattingPage />} />
 			<Route path="/paybattery" element={<BuyBattery />} />
+			<Route path="/checkout" element={<CheckoutPage />} />
 			<Route path="/buychatbot" element={<BuyChatbot />} />
 			<Route path="/help" element={<HelpPage />} />
 			<Route path="/userinfo" element={<UserInfo />} />

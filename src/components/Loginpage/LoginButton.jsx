@@ -9,7 +9,7 @@ export function LoginButton() {
   const onTest = async () => {
     const accessToken = getCookie("accessToken");
 
-    const response = await axios.get(`${import.meta.env.VITE_WAS_URL}/api/batteries`, {
+    const response = await axios.get(`${import.meta.env.VITE_WAS_URL}/api/chatbots`, {
       withCredentials: true,
       headers: {
         'Authorization': `${accessToken}`
