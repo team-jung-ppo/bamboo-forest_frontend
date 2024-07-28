@@ -1,14 +1,3 @@
-#buybattery {
-	display: flex;
-	flex-direction: column;
-}
-
-.headertab {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 .logoandtxt {
 	display: flex;
 	flex-direction: column;
