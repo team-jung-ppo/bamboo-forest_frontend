@@ -41,17 +41,19 @@ function Header() {
 
 	return (
 		<div className={styles.header}>
-			<div className={styles.profile}>
-				<img
-					className={styles.profileImg}
-					src="src/assets/bambooForestLogo.png"
-					alt=""
-				/>
-				<div className={styles.profileInfo}>
-					<h3>아저씨</h3>
-					<span>Activate 35,000 people</span>
+			<Link to="/chatting">
+				<div className={styles.profile}>
+					<img
+						className={styles.profileImg}
+						src="src/assets/bambooForestLogo.png"
+						alt=""
+					/>
+					<div className={styles.profileInfo}>
+						<h3>아저씨</h3>
+						<span>Activate 35,000 people</span>
+					</div>
 				</div>
-			</div>
+			</Link>
 
 			<div className={styles.rightHeader}>
 				<Link to="/paybattery">
