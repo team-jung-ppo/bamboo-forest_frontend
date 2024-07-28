@@ -50,9 +50,7 @@ function BuyBattery() {
 	}, []);
 	return (
 		<div id={styles.buybattery}>
-			<div className={styles.topContainer}>
-				<Header />
-			</div>
+			<Header />
 			<div className={styles.logoandtxt}>
 				<h3>추가할 배터리 수를 선택하세요.</h3>
 			</div>
