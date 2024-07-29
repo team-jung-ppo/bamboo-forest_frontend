@@ -7,7 +7,6 @@ import {usePurchaseChatbots} from "../../../hooks/purchaseChatbots/usePurchaseCh
 export function SideBar({ open, onToggleSideBar }) {
   const availableBots = usePurchaseChatbots();
 
-  console.log(availableBots);
 
   return (
     <div className={!open ? styles.block : open === '_true' ? styles.block_true : styles.block_false}>
