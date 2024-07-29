@@ -5,6 +5,7 @@ import Header from '../common/Header/Header';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { getCookie } from '../../services/cookie';
+import {MyBatteryInfo} from "./MyBatteryInfo.jsx";
 
 function BuyBattery() {
 	const buyBatteryData = [
@@ -53,6 +54,7 @@ function BuyBattery() {
 			<div className={styles.topContainer}>
 				<Header />
 			</div>
+			<MyBatteryInfo />
 			<div className={styles.logoandtxt}>
 				<h3>추가할 배터리 수를 선택하세요.</h3>
 			</div>
