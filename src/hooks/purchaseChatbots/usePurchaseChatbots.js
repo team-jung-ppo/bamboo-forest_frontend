@@ -15,7 +15,7 @@ export function usePurchaseChatbots() {
             'Authorization': `${accessToken}`
           }
         });
-        setChatbots(res);
+        setChatbots(res.data);
       } catch (error) {
         console.error("Error fetching chatbots", error);
       }
