@@ -1,8 +1,8 @@
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import styles from "./modalSideBar.module.css";
 import LogoImg from "../../../assets/bambooForestLogo.png";
-import {ModalBackground} from "./ModalBackground.jsx";
-import {AvailableBot} from "../SideBar/AvailableBot.jsx";
+import {ModalBackground} from "../Modal/ModalBackground.jsx";
+import {AvailableBot} from "./AvailableBot.jsx";
 
 export function ModalSideBar({ open, onToggleSideBar }) {
   return (
