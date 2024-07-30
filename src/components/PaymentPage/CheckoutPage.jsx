@@ -1,5 +1,6 @@
 import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 import { useEffect, useState } from "react";
+import {useLocation} from "react-router-dom";
 
 export function CheckoutPage() {
   const [amount, setAmount] = useState({
@@ -8,8 +9,10 @@ export function CheckoutPage() {
   });
   const [ready, setReady] = useState(false);
   const [widgets, setWidgets] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
+    console.log(location.state);
     async function fetchPaymentWidgets() {
       // ------  결제위젯 초기화 ------
       const tossPayments = await loadTossPayments(import.meta.env.VITE_CLIENT_KEY);
@@ -32,7 +35,7 @@ export function CheckoutPage() {
         return;
       }
       // ------ 주문의 결제 금액 설정 ------
-      await widgets.setAmount(amount);
+      await widgets.setAmount({...amount, value: location.state.amount});
 
       await Promise.all([
         // ------  결제 UI 렌더링 ------
@@ -58,8 +61,8 @@ export function CheckoutPage() {
       return;
     }
 
-    widgets.setAmount(amount);
-  }, [widgets, amount]);
+    widgets.setAmount({...amount, value: location.state.amount});
+  }, [widgets, amount, location]);
 
   return (
     <div className="wrapper">
