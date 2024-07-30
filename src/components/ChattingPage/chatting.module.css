@@ -2,6 +2,16 @@
     display: flex;
 }
 
+.isModal {
+    display: none;
+}
+
+@media screen and (max-width: 769px) {
+    .isModal {
+        display: block;
+    }
+}
+
 .arrow {
     margin: 8px 12px 0 0;
     color: black;

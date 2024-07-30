@@ -1,6 +1,6 @@
 @keyframes FadeIn {
     0% {
-        transform: translateX(-280px);
+        transform: translateX(-290px);
     }
     to {
         transform: translateX(0px);
@@ -12,13 +12,13 @@
         transform: translateX(0);
     }
     to {
-        transform: translateX(-280px);
+        transform: translateX(-290px);
     }
 }
 
 @keyframes MobileFadeIn {
     0% {
-        transform: translateX(-200px);
+        transform: translateX(-210px);
     }
     to {
         transform: translateX(0px);
@@ -30,7 +30,7 @@
         transform: translateX(0px);
     }
     to {
-        transform: translateX(-200px);
+        transform: translateX(-210px);
     }
 }
 
@@ -42,6 +42,7 @@
     background-color: white;
     box-shadow:  5px 5px 5px #c7c7c7,
     -5px -5px 5px #ffffff;
+    transform: translateX(-290px);
 }
 
 .block_true {
@@ -64,7 +65,7 @@
     box-shadow:  5px 5px 5px #c7c7c7,
     -5px -5px 5px #ffffff;
     animation: FadeOut 0.2s;
-    transform: translateX(-280px);
+    transform: translateX(-290px);
 }
 
 @media screen and (min-width: 769px) {
@@ -84,6 +85,7 @@
 @media screen and (max-width: 480px) {
     .block {
         width: 200px;
+        transform: translateX(-210px);
     }
 
     .block_true {
@@ -94,11 +96,13 @@
     .block_false {
         width: 200px;
         animation: MobileFadeOut 0.2s;
+        transform: translateX(-210px);
     }
 }
 
 .arrowBlock {
     text-align: right;
+    height: 5vh;
 }
 
 .arrow {
@@ -112,7 +116,17 @@
     background-color: rgba(233, 233, 233, 0.3);
 }
 
+.logo {
+    height: 20vh;
+}
+
 .title {
+    height: 5vh;
     text-align: center;
     font-weight: bold;
+}
+
+.content {
+    height: 64vh;
+    overflow-y: scroll;
 }
