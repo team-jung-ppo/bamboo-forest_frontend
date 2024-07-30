@@ -14,6 +14,7 @@ import UserInfo from './components/UserInfoPage/UserInfo.jsx';
 
 import OauthRedirectPage from './components/Loginpage/OauthRedirectPage.jsx';
 import {CheckoutPage} from "./components/PaymentPage/CheckoutPage.jsx";
+import Header from "./components/common/Header/Header.jsx";
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(

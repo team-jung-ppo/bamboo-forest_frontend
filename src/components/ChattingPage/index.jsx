@@ -1,7 +1,7 @@
 import {SideBar} from "../common/SideBar/SideBar.jsx";
 import styles from "./chatting.module.css";
 import {useEffect, useRef, useState} from "react";
-import {ModalSideBar} from "../common/Modal/ModalSideBar.jsx";
+import {ModalSideBar} from "../common/SideBar/ModalSideBar.jsx";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight.js";
 import {ChattingContainer} from "./ChattingContainer.jsx";
 import {useNavigate} from "react-router-dom";
@@ -47,7 +47,7 @@ export function ChattingPage() {
       <div className={styles.isModal}>
         <ModalSideBar open={open} onToggleSideBar={onToggleSideBar} />
       </div>
-      <div style={{ width: `${open === '_true' ? "0px" : "50px"}` }} >
+      <div style={{ width: `${open === '_true' ? "0px" : "50px"}`, height: '100vh', borderRight: `${open === '_true' ? null : '1px solid #D1D5DB'}` }} >
         {open === '_false' || !open ?
           <KeyboardDoubleArrowRightIcon
             className={styles.arrow}

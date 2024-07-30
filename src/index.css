@@ -1,6 +1,5 @@
 body {
 	margin: 0;
-	background-color: #f1f1f1;
 }
 
 body div {
@@ -9,10 +8,6 @@ body div {
 
 body .swal2-icon {
 	margin: 2em auto;
-}
-
-body {
-	overflow-y: overlay; /* 반드시 overlay 처리 */
 }
 
 ::-webkit-scrollbar {
