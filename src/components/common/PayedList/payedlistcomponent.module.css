@@ -5,3 +5,83 @@
 	justify-content: space-around;
 	padding: 10px;
 }
+
+.productName {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.productNameLabel {
+	background-color: black;
+	color: white;
+	padding: 0.4rem 1.8rem;
+	margin: 0.4rem;
+	font-size: 0.8rem;
+	border-radius: 4rem;
+}
+
+.cost {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.costLabel {
+	background-color: black;
+	color: white;
+	padding: 0.4rem 1.8rem;
+	margin: 0.4rem;
+	font-size: 0.7rem;
+	border-radius: 4rem;
+}
+
+.counts {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.countsLabel {
+	background-color: black;
+	color: white;
+	padding: 0.4rem 1.8rem;
+	margin: 0.4rem;
+	font-size: 0.8rem;
+	border-radius: 4rem;
+}
+
+.provided {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.providedLabel {
+	background-color: black;
+	color: white;
+	padding: 0.4rem 1.8rem;
+	margin: 0.4rem;
+	font-size: 0.8rem;
+	border-radius: 4rem;
+}
+
+.payedAt {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.payedAtLabel {
+	background-color: black;
+	color: white;
+	padding: 0.4rem 1.8rem;
+	margin: 0.4rem;
+	font-size: 0.8rem;
+	border-radius: 4rem;
+}
