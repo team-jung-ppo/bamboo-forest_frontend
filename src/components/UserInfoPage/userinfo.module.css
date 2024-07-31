@@ -1,5 +1,6 @@
-.topcontainer {
-	width: auto;
+.topContainer {
+	display: flex;
+	flex-direction: row;
 }
 
 .name {

@@ -4,6 +4,11 @@
 	justify-content: center;
 }
 
+.topContainer {
+	display: flex;
+	flex-direction: row;
+}
+
 .logoandtxt {
 	display: flex;
 	flex-direction: column;

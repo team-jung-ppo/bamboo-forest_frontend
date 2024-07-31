@@ -195,7 +195,7 @@ function UserInfo() {
 	}, []);
 	return (
 		<div className={styles.container}>
-			<div className={styles.topcontainer}>
+			<div className={styles.topContainer}>
 				<Header />
 			</div>
 			<div className={styles.name}>{userinfo.username} 님 환영합니다!</div>

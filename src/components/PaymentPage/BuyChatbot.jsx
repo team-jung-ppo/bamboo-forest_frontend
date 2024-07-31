@@ -38,7 +38,9 @@ function BuyChatbot() {
 
 	return (
 		<div className={styles.container}>
-			<Header />
+			<div className={styles.topContainer}>
+				<Header />
+			</div>
 			<div className={styles.logoandtxt}>
 				<h3>구매할 챗봇을 선택하세요.</h3>
 			</div>
