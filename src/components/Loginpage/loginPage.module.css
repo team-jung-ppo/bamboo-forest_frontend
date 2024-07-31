@@ -4,3 +4,31 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+.logoBlock {
+
+}
+
+.btnBlock {
+
+}
+
+@media screen and (min-width: 1024px) {
+    .block {
+        flex-direction: row;
+    }
+
+    .logoBlock {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .btnBlock {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

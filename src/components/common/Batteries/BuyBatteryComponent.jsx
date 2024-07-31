@@ -1,13 +1,27 @@
 import styles from './buyBatteryComponent.module.css';
+import {useCallback} from "react";
+import {usePurchaseBattery} from "../../../hooks/battery/usePurchaseBattery.js";
+import {useNavigate} from "react-router-dom";
 
-function BuyBatteryComponent(props) {
+function BuyBatteryComponent({ name, batterynum, cost}) {
+	const purchaseBattery = usePurchaseBattery(name);
+	const navigate = useNavigate();
+
+	const onPurchase = useCallback(() => {
+		const batteryInfo = purchaseBattery;
+		navigate('/checkout', {
+			state: {...batteryInfo}
+		})
+	}, [purchaseBattery]);
+
 	return (
 		<div className={styles.batteryComponent}>
-			<div className={styles.batteryIcon}>🔋</div>
-			<div className={styles.title}>{props.name}</div>
-			<div className={styles.numOfBattery}>{props.batterynum} 개</div>
-			<div className={styles.costOfBattery}>{props.cost} 원</div>
-			<button className={styles.selectBtn}>선택하기</button>
+			<div className={styles.info}>
+				<div className={styles.batteryIcon}>🔋</div>
+				<div className={styles.title}>{name}</div>
+				<div className={styles.numOfBattery}>{batterynum} 개</div>
+			</div>
+			<div className={styles.costOfBattery} onClick={onPurchase}>{cost} 원</div>
 		</div>
 	);
 }
