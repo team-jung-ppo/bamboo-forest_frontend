@@ -42,10 +42,17 @@
 	color: #43655a;
 }
 
+.contentBlock {
+	max-width: 1200px;
+	width: 90%;
+	margin: 0 auto;
+}
+
 .aboutBattery {
 	display: flex;
 	width: 80%;
 	margin: 0 auto;
+	margin-top: 1em;
 	align-items: center;
 }
 

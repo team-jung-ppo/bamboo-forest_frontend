@@ -15,6 +15,7 @@ import UserInfo from './components/UserInfoPage/UserInfo.jsx';
 import OauthRedirectPage from './components/Loginpage/OauthRedirectPage.jsx';
 import {CheckoutPage} from "./components/PaymentPage/CheckoutPage.jsx";
 import Header from "./components/common/Header/Header.jsx";
+import Background from "./components/Background.jsx";
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -22,7 +23,9 @@ export const router = createBrowserRouter(
 			path="/"
 			component={
 				<UnknownErrorBoundary>
-					<Outlet />
+					<Background>
+						<Outlet />
+					</Background>
 				</UnknownErrorBoundary>
 			}
 		>
