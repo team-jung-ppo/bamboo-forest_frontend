@@ -41,19 +41,23 @@ function BuyChatbot() {
 			<div className={styles.topContainer}>
 				<Header />
 			</div>
-			<div className={styles.logoandtxt}>
-				<h3>구매할 챗봇을 선택하세요.</h3>
-			</div>
-			<div className={styles.buychatbotlist}>
-				{chatbotData.map((data, index) => (
-					<ChatBotComponent
-						key={index}
-						imgUrl={data.imgUrl}
-						name={data.name}
-						description={data.description}
-						cost={'1000'}
-					/>
-				))}
+			<div className={styles.buychatbot}>
+				<div className={styles.txts}>
+					<div className={styles.titleTxt}>챗봇 구매</div>
+					<div className={styles.subTxt}>구매할 챗봇을 선택하세요</div>
+				</div>
+				<div className={styles.buychatbotlist}>
+					{chatbotData.map((data, index) => (
+						<ChatBotComponent
+							key={index}
+							imgUrl={data.imageUrl}
+							name={data.name}
+							description={data.description}
+							cost={data.price}
+							available={data.available}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
