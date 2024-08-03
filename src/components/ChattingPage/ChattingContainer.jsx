@@ -4,7 +4,7 @@ import useSocket from "../../hooks/socket/useSocket.js";
 export function ChattingContainer({ message, speed = 40, onComplete, isResponse = true }) {
   const [displayedMessage, setDisplayedMessage] = useState('');
   const [index, setIndex] = useState(0);
-  const [socket] = useSocket();
+  // const [socket] = useSocket();
 
   const reset = () => {
     setDisplayedMessage('');

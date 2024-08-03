@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { getCookie } from '../../services/cookie.js';
 import axios from 'axios';
 
-export function usePurchaseBattery(batteryname) {
+export function usePurchaseBattery(batteryName) {
   const [purchaseBattery, setPurchaseBattery] = useState({
     orderId: null,
     amount: 0,
+    name: ''
   });
 
   useEffect(() => {
@@ -15,7 +16,7 @@ export function usePurchaseBattery(batteryname) {
         const res = await axios.post(
           `${import.meta.env.VITE_WAS_URL}/api/payments/setup`,
           {
-            batteryItemName: batteryname,
+            batteryItemName: batteryName,
           },
           {
             withCredentials: true,
@@ -25,16 +26,16 @@ export function usePurchaseBattery(batteryname) {
           }
         );
 
-        setPurchaseBattery(res.data); // res에서 실제 데이터를 추출합니다.
+        setPurchaseBattery({ ...res.data, name: batteryName }); // res에서 실제 데이터를 추출합니다.
       } catch (error) {
         console.error('Error fetching purchase battery:', error);
       }
     };
 
-    if (batteryname) {
+    if (batteryName) {
       postPurchaseBattery();
     }
-  }, [batteryname]);
+  }, [batteryName]);
 
   return purchaseBattery;
 }
