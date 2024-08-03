@@ -9,7 +9,7 @@
 }
 
 .block {
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	margin-top: 3em;
 	display: flex;
@@ -18,7 +18,7 @@
 }
 
 .options {
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	margin-top: 4em;
 	display: flex;
@@ -38,13 +38,13 @@
 
 .contentBlock {
 	max-width: 1200px;
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
 }
 
 .aboutBattery {
 	display: flex;
-	width: 80%;
+	width: 85%;
 	margin: 0 auto;
 	margin-top: 1em;
 	align-items: center;
@@ -65,10 +65,9 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: 80%;
+	width: 85%;
 	margin: 0 auto;
 	margin-top: 2em;
-	border-bottom: 1px solid #d1d5db;
 }
 
 .listTitle {
@@ -89,33 +88,11 @@
 
 @media screen and (max-width: 992px){
 	.option {
-		font-size: 18px;
-	}
-
-	.aboutTitle {
-		font-size: 17px;
-	}
-
-	.aboutContent {
-		font-size: 15px;
-	}
-
-	.listTitle {
-		font-size: 16px;
-	}
-
-	.listContent {
-		height: 350px;
-	}
-}
-
-@media screen and (max-width: 768px){
-	.option {
 		font-size: 16px;
 	}
 
 	.aboutTitle {
-		font-size: 15px;
+		font-size: 14px;
 	}
 
 	.aboutContent {
@@ -125,9 +102,34 @@
 	.listTitle {
 		font-size: 14px;
 	}
+}
+
+@media screen and (max-width: 880px) {
+	.listContent {
+		height: 550px;
+		margin-bottom: 3em;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.option {
+		font-size: 16px;
+	}
+
+	.aboutTitle {
+		font-size: 13px;
+	}
+
+	.aboutContent {
+		font-size: 11px;
+	}
+
+	.listTitle {
+		font-size: 12px;
+	}
 
 	.listContent {
-		height: 350px;
+		height: 450px;
 	}
 }
 
@@ -141,16 +143,20 @@
 	}
 
 	.aboutContent {
-		font-size: 10px;
+		font-size: 9px;
 	}
 
 	.listTitle {
 		font-size: 10px;
 	}
+
+	.listContent {
+		height: 420px;
+		margin-bottom: 2em;
+	}
 }
 
 @media screen and (max-width: 360px) {
-
 	.aboutTitle {
 		font-size: 10px;
 	}
