@@ -44,11 +44,10 @@ function Header() {
 					<img
 						className={styles.profileImg}
 						src="src/assets/bambooForestLogo.png"
-						alt=""
+						alt="profile"
 					/>
 					<div className={styles.profileInfo}>
 						<h3>아저씨</h3>
-						<span>Activate 35,000 people</span>
 					</div>
 				</div>
 			</Link>

@@ -14,13 +14,13 @@
 }
 
 .title {
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: bold;
 }
 
 .batteryIcon {
 	margin: 10px;
-	font-size: 1em;
+	font-size: 17px;
 }
 
 .numOfBattery {
@@ -32,7 +32,7 @@
 .costOfBattery {
 	width: 20%;
 	text-align: center;
-	font-size: 0.7em;
+	font-size: 11px;
 	font-weight: bold;
 	color: white;
 	padding: 0.5em 0;
@@ -43,7 +43,28 @@
 
 @media screen and (max-width: 1024px) {
 	.batteryIcon {
-		font-size: 20px;
+		font-size: 16px;
+	}
+
+	.title {
+		font-size: 12px;
+	}
+
+	.numOfBattery {
+		font-size: 10px;
+	}
+
+	.costOfBattery {
+		width: 25%;
+		font-size: 8px;
+	}
+}
+
+@media screen and (max-width: 880px) {
+	.batteryComponent {
+		width: 100%;
+		height: 9%;
+		margin-top: 2.5em;
 	}
 
 	.title {
@@ -55,31 +76,11 @@
 	}
 
 	.costOfBattery {
-		width: 25%;
 		font-size: 12px;
 	}
 }
 
-@media screen and (max-width: 880px) {
-	.title {
-		font-size: 11px;
-	}
-
-	.numOfBattery {
-		font-size: 10px;
-	}
-
-	.costOfBattery {
-		font-size: 10px;
-	}
-}
-
 @media screen and (max-width: 768px) {
-	.batteryComponent {
-		width: 100%;
-		height: 10%;
-	}
-
 	.title {
 		font-size: 15px;
 	}
@@ -95,6 +96,10 @@
 }
 
 @media screen and (max-width: 480px) {
+	.batteryComponent {
+		margin-top: 1.9em;
+	}
+
 	.batteryIcon {
 		font-size: 17px;
 	}
