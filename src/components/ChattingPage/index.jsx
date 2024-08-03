@@ -63,8 +63,10 @@ export function ChattingPage() {
 				) : null}
 			</div>
 			{!isError && (
-				<div>
-					<Header />
+				<div className={styles.content}>
+					<div className={styles.topContainer}>
+						<Header />
+					</div>
 					<ChattingContainer
 						message={'테스트메시지테스트메시지테스트메시지테스트메시지'}
 					/>

@@ -3,13 +3,22 @@
 }
 
 .isModal {
-    display: none;
+	display: none;
 }
 
 @media screen and (max-width: 769px) {
-    .isModal {
-        display: block;
-    }
+	.isModal {
+		display: block;
+	}
+}
+
+.topContainer {
+	display: flex;
+	flex-direction: row;
+}
+
+.content {
+	width: 100%;
 }
 
 .arrow {
