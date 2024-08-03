@@ -13,7 +13,6 @@ import HelpPage from './components/HelpPage/HelpPage.jsx';
 import UserInfo from './components/UserInfoPage/UserInfo.jsx';
 import OauthRedirectPage from './components/Loginpage/OauthRedirectPage.jsx';
 import {CheckoutPage} from "./components/PaymentPage/CheckoutPage.jsx";
-import Background from "./components/Background.jsx";
 import {SuccessPage} from "./components/PaymentPage/SuccessPage/index.jsx";
 import {FailPage} from "./components/PaymentPage/FailurePage/index.jsx";
 import {Layout} from "./components/common/Layout/Layout.jsx";
