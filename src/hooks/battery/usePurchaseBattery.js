@@ -6,6 +6,7 @@ export function usePurchaseBattery(batteryName) {
   const [purchaseBattery, setPurchaseBattery] = useState({
     orderId: null,
     amount: 0,
+    name: ''
   });
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export function usePurchaseBattery(batteryName) {
           }
         );
 
-        setPurchaseBattery(res.data); // res에서 실제 데이터를 추출합니다.
+        setPurchaseBattery({ ...res.data, name: batteryName }); // res에서 실제 데이터를 추출합니다.
       } catch (error) {
         console.error('Error fetching purchase battery:', error);
       }

@@ -2,6 +2,7 @@ import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 import { useEffect, useState } from "react";
 import {useLocation} from "react-router-dom";
 import styles from "./checkoutPage.module.css";
+import axios from "axios";
 
 export function CheckoutPage() {
   const [amount, setAmount] = useState({
@@ -100,9 +101,10 @@ export function CheckoutPage() {
               // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
               // 결제를 요청하기 전에 orderId, amount를 서버에 저장하세요.
               // 결제 과정에서 악의적으로 결제 금액이 바뀌는 것을 확인하는 용도입니다.
+
               await widgets.requestPayment({
-                orderId: "j2vRN5HSE-REm5bRyTOSI",
-                orderName: "토스 티셔츠 외 2건",
+                orderId: location.state.orderId,
+                orderName: location.state.name,
                 successUrl: window.location.origin + "/success",
                 failUrl: window.location.origin + "/fail",
                 customerEmail: "customer123@gmail.com",

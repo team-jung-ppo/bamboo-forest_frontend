@@ -76,7 +76,7 @@ function BuyBattery() {
 								<BuyBatteryComponent
 									key={index}
 									name={data.name}
-									batterynum={data.count}
+									batteryNum={data.count}
 									cost={data.price}
 								/>
 							))}
