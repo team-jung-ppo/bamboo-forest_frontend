@@ -21,7 +21,7 @@ function BuyBatteryComponent({ name, batteryNum, cost}) {
 				<div className={styles.title}>{name}</div>
 				<div className={styles.numOfBattery}>{batteryNum} 개</div>
 			</div>
-			<div className={styles.costOfBattery} onClick={onPurchase}>{cost} 원</div>
+			<div className={styles.costOfBattery} onClick={onPurchase}>{cost.toLocaleString()} 원</div>
 		</div>
 	);
 }

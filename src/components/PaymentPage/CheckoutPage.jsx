@@ -14,7 +14,6 @@ export function CheckoutPage() {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(location.state);
     async function fetchPaymentWidgets() {
       // ------  결제위젯 초기화 ------
       const tossPayments = await loadTossPayments(import.meta.env.VITE_CLIENT_KEY);

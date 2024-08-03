@@ -9,7 +9,27 @@
 }
 
 .userBattery {
+    width: 60%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #D1D5DB;
     border-radius: 5px;
-    padding: 1em 10em;
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 16px;
+    }
+
+    .userBattery p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .userBattery p {
+        font-size: 12px;
+    }
 }
