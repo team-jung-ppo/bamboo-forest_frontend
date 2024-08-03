@@ -23,9 +23,9 @@ export function SideBar({ open, onToggleSideBar }) {
         <p className={styles.title}>사용 가능한 상담봇</p>
         <div className={styles.content}>
           {
-            availableBots && availableBots.map((bot, id) => {
-              <AvailableBot id={id} name={bot.chatBotItem.name} url={bot.chatBotItem.url} description={bot.chatBotItem.description} imageUrl={bot.chatBotItem.imageUrl} price={bot.chatBotItem.price} />
-            })
+            availableBots && availableBots.map((bot, id) => (
+              <AvailableBot key={id} id={id} name={bot.chatBotItem.name} url={bot.chatBotItem.url} description={bot.chatBotItem.description} imageUrl={bot.chatBotItem.imageUrl} price={bot.chatBotItem.price} />
+            ))
           }
         </div>
       </div>
