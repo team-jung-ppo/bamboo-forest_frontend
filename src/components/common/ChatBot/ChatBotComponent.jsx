@@ -18,9 +18,18 @@ function ChatBotComponent(props) {
 					},
 				},
 			);
-			// const userData = response.data;
-			// setUserinfo(userData);
+			const userData = response.data;
+			console.log(userData);
 		} catch (e) {
+			if (e.response?.data.code === 'E016') {
+				alert('이미 소유한 챗봇입니다.');
+			}
+			if (e.response?.data.code === 'E011') {
+				alert('배터리가 부족합니다.');
+			}
+			if (e.response?.data.code === 'E019') {
+				alert('현재 구매가 불가능한 챗봇입니다.');
+			}
 			if (axios.isAxiosError(e)) {
 				console.error('Axios error:', e.response?.data || e.message);
 			} else {
