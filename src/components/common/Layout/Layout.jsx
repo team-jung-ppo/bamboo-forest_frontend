@@ -27,7 +27,6 @@ export function Layout() {
         style={{
           width: `${open === '_true' ? '0px' : '50px'}`,
           height: '100vh',
-          borderRight: `${open === '_true' ? null : '1px solid #D1D5DB'}`,
         }}
       >
         {open === '_false' || !open ? (
@@ -42,7 +41,7 @@ export function Layout() {
         <div className={styles.topContainer}>
           <Header/>
         </div>
-        <div>
+        <div className={styles.outletContainer}>
           <Outlet/>
         </div>
       </div>

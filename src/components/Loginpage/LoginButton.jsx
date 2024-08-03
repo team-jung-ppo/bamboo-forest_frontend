@@ -1,7 +1,6 @@
 import styles from "./loginButton.module.css";
 import {KakaoLoginButton} from "../common/Buttons/KakaoLoginButton.jsx";
 import {GithubLoginButton} from "../common/Buttons/GithubLoginButton.jsx";
-import client from "../../services/api/axios.js";
 import axios from "axios";
 import {getCookie} from "../../services/cookie.js";
 

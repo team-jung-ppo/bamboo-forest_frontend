@@ -40,9 +40,8 @@
     top: 0;
     bottom: 0;
     background-color: white;
-    box-shadow:  5px 5px 5px #c7c7c7,
-    -5px -5px 5px #ffffff;
     transform: translateX(-290px);
+    z-index: 100;
 }
 
 .block_true {
@@ -51,9 +50,8 @@
     top: 0;
     bottom: 0;
     background-color: white;
-    box-shadow:  5px 5px 5px #c7c7c7,
-    -5px -5px 5px #ffffff;
     animation: FadeIn 0.2s forwards;
+    z-index: 100;
 }
 
 .block_false {
@@ -62,10 +60,9 @@
     top: 0;
     bottom: 0;
     background-color: white;
-    box-shadow:  5px 5px 5px #c7c7c7,
-    -5px -5px 5px #ffffff;
     animation: FadeOut 0.2s;
     transform: translateX(-290px);
+    z-index: 100;
 }
 
 @media screen and (min-width: 769px) {

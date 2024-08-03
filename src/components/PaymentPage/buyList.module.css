@@ -1,0 +1,124 @@
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #D1D5DB;
+    padding: 0.4em 0.6em;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    color: #767676;
+    gap: 8px;
+}
+
+.batteryIcon {
+    font-size: 18px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.count {
+    font-size: 14px;
+    width: 48px;
+}
+
+.date {
+    font-size: 10px;
+    position: relative;
+    top: 2px;
+}
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.provider {
+    font-size: 12px;
+    color: #767676;
+}
+
+@media screen and (max-width: 480px) {
+    .block {
+        padding: 0.2em 0.4em;
+    }
+
+    .info {
+        gap: 4px;
+    }
+
+    .batteryIcon {
+        font-size: 16px;
+    }
+
+    .name {
+        font-size: 14px;
+    }
+
+    .count {
+        font-size: 12px;
+        width: 32px;
+    }
+
+    .date {
+        font-size: 8px;
+    }
+
+    .price {
+        font-size: 14px;
+    }
+
+    .provider {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .batteryIcon {
+        font-size: 14px;
+    }
+
+    .name {
+        font-size: 11px;
+    }
+
+    .count {
+        font-size: 10px;
+        width: 28px;
+    }
+
+    .date {
+        font-size: 7px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+
+    .provider {
+        font-size: 8px;
+    }
+}

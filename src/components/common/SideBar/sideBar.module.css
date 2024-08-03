@@ -29,7 +29,6 @@
     top: 0;
     bottom: 0;
     background-color: white;
-    border-right: 1px solid #D1D5DB;
     transform: translateX(-350px);
 }
 
@@ -38,7 +37,6 @@
     position: relative;
     height: 100%;
     background-color: white;
-    border-right: 1px solid #D1D5DB;
     animation: FadeIn 0.2s forwards;
 }
 
@@ -49,7 +47,6 @@
     top: 0;
     bottom: 0;
     background-color: white;
-    border-right: 1px solid #D1D5DB;
     animation: FadeOut 0.2s forwards;
     transform: translateX(-350px);
 }
