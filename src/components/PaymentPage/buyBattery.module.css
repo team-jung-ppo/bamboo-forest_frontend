@@ -1,12 +1,6 @@
-#buybattery {
+.buyBattery {
 	display: flex;
 	flex-direction: column;
-}
-
-.headertab {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 .topContainer {
@@ -58,6 +52,8 @@
 
 .aboutTitle {
 	flex: 2;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .aboutContent {
@@ -65,7 +61,7 @@
 	color: #889f5a;
 }
 
-.buybatterylist {
+.buyBatteryList {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -89,4 +85,81 @@
 	height: 250px;
 	flex-wrap: wrap;
 	margin-bottom: 5em;
+}
+
+@media screen and (max-width: 992px){
+	.option {
+		font-size: 18px;
+	}
+
+	.aboutTitle {
+		font-size: 17px;
+	}
+
+	.aboutContent {
+		font-size: 15px;
+	}
+
+	.listTitle {
+		font-size: 16px;
+	}
+
+	.listContent {
+		height: 350px;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.option {
+		font-size: 16px;
+	}
+
+	.aboutTitle {
+		font-size: 15px;
+	}
+
+	.aboutContent {
+		font-size: 13px;
+	}
+
+	.listTitle {
+		font-size: 14px;
+	}
+
+	.listContent {
+		height: 350px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.option {
+		font-size: 12px;
+	}
+
+	.aboutTitle {
+		font-size: 12px;
+	}
+
+	.aboutContent {
+		font-size: 10px;
+	}
+
+	.listTitle {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+
+	.aboutTitle {
+		font-size: 10px;
+	}
+
+	.aboutContent {
+		font-size: 8px;
+	}
+
+	.listTitle {
+		font-size: 9px;
+	}
 }

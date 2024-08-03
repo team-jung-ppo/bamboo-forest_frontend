@@ -38,7 +38,7 @@ function BuyBattery() {
 		fetchBatteryData();
 	}, []);
 	return (
-		<div id={styles.buybattery}>
+		<div className={styles.buyBattery}>
 			<div className={styles.topContainer}>
 				<Header />
 			</div>
@@ -59,7 +59,6 @@ function BuyBattery() {
 				<div className={styles.aboutBattery}>
 					<div
 						className={styles.aboutTitle}
-						style={{ fontSize: '20px', fontWeight: '700' }}
 					>
 						배터리란?
 					</div>
@@ -69,7 +68,7 @@ function BuyBattery() {
 				</div>
 
 				{selectOption === options[0].text && (
-					<div className={styles.buybatterylist}>
+					<div className={styles.buyBatteryList}>
 						<div className={styles.listTitle}>쿠키 패키지</div>
 						<div className={styles.listContent}>
 							{buyBatteryList.map((data, index) => (
