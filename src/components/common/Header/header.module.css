@@ -40,33 +40,11 @@
 	margin: 0 0.2rem;
 }
 
-.help {
-	margin: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.help > div {
-	margin: 0 0.2rem;
-}
-
 .buyChatbot {
 	margin: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.userInfo {
-	margin: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.userInfo > div {
-	margin: 0 0.2rem;
 }
 
 .profileInfo {

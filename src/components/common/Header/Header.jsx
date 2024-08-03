@@ -1,8 +1,6 @@
 import styles from './header.module.css';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
-import PersonIcon from '@mui/icons-material/Person';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -64,14 +62,7 @@ function Header() {
 						</div>
 					</div>
 				</Link>
-				<Link to="/help">
-					<div className={styles.help}>
-						<div className={styles.helpTxt}>Help</div>
-						<div className={styles.helpIcon}>
-							<HelpOutlineOutlinedIcon />
-						</div>
-					</div>
-				</Link>
+
 				<Link to="/buychatbot">
 					<div className={styles.buyChatbot}>
 						<div className={styles.buyChatbotTxt}>Buy ChatBot</div>
@@ -80,14 +71,7 @@ function Header() {
 						</div>
 					</div>
 				</Link>
-				<Link to="/userInfo">
-					<div className={styles.userInfo}>
-						<div className={styles.userinfoIcon}>
-							<PersonIcon />
-						</div>
-						<div className={styles.userinfoTxt}>{userinfo.username}</div>
-					</div>
-				</Link>
+
 				<div className={styles.batteryinfo}>
 					<Batteries />
 				</div>

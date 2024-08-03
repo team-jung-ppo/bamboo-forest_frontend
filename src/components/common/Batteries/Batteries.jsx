@@ -19,11 +19,6 @@ export function Batteries() {
 				<div className={styles.batteriesCnt}>
 					🔋 현재 보유한 건전지 {battery}개
 				</div>
-				<div className={styles.chargeBtnContainer}>
-					<Link to="/paybattery">
-						<span className={styles.chargeBtn}>건전지 충전하기</span>
-					</Link>
-				</div>
 			</div>
 		</>
 	);
