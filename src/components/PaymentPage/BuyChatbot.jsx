@@ -38,9 +38,6 @@ function BuyChatbot() {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.topContainer}>
-				<Header />
-			</div>
 			<div className={styles.buychatbot}>
 				<div className={styles.txts}>
 					<div className={styles.titleTxt}>챗봇 구매</div>
