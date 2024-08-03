@@ -15,7 +15,7 @@ import OauthRedirectPage from './components/Loginpage/OauthRedirectPage.jsx';
 import {CheckoutPage} from "./components/PaymentPage/CheckoutPage.jsx";
 import Background from "./components/Background.jsx";
 import {SuccessPage} from "./components/PaymentPage/SuccessPage/index.jsx";
-import {FailurePage} from "./components/PaymentPage/FailurePage/index.jsx";
+import {FailPage} from "./components/PaymentPage/FailurePage/index.jsx";
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -35,7 +35,7 @@ export const router = createBrowserRouter(
 			<Route path="/paybattery" element={<BuyBattery />} />
 			<Route path="/checkout" element={<CheckoutPage />} />
 			<Route path="/success" element={<SuccessPage />} />
-			<Route path="/fail" element={<FailurePage />} />
+			<Route path="/fail" element={<FailPage />} />
 			<Route path="/buychatbot" element={<BuyChatbot />} />
 			<Route path="/help" element={<HelpPage />} />
 			<Route path="/userinfo" element={<UserInfo />} />
