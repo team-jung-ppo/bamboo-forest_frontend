@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './batteries.module.css';
+import axios from 'axios';
+import { getCookie } from '../../../services/cookie';
+import { useGetUserBattery } from '../../../hooks/battery/useGetUserBattery';
 
 export function Batteries() {
-	const [battery, setBattery] = useState(0);
+	const userBattery = useGetUserBattery();
 
-	const fetchBatteryNum = async () => {
-		try {
-			const response = await client.get('/api/members/profile');
-			setBattery(response.batteryCount);
-		} catch (e) {
-			console.log(e);
-		}
-	};
 	return (
 		<>
 			<div className={styles.batteriesInfo}>
 				<div className={styles.batteriesCnt}>
-					🔋 현재 보유한 건전지 {battery}개
+					🔋 현재 보유한 건전지 {userBattery}개
 				</div>
 			</div>
 		</>
