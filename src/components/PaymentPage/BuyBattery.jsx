@@ -1,16 +1,18 @@
 import styles from './buyBattery.module.css';
 import BuyBatteryComponent from './BuyBatteryComponent.jsx';
-import Header from '../common/Header/Header';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { getCookie } from '../../services/cookie';
 import { MyBatteryInfo } from './MyBatteryInfo.jsx';
 import { options } from '../../constants/payBatteryOptions.js';
+import {useGetBuyBatteryList} from "../../hooks/battery/useGetBuyBatteryList.js";
+import {BuyList} from "./BuyList.jsx";
 
 
 function BuyBattery() {
 	const [buyBatteryList, setBuyBatteryList] = useState([]);
 	const [selectOption, setSelectOption] = useState('배터리충전');
+	const buyList = useGetBuyBatteryList();
 
 	const fetchBatteryData = async () => {
 		try {
@@ -35,6 +37,7 @@ function BuyBattery() {
 		}
 	};
 	useEffect(() => {
+		console.log(buyList);
 		fetchBatteryData();
 	}, []);
 	return (
@@ -63,7 +66,6 @@ function BuyBattery() {
 						챗봇을 구매하기 위해 필요한 전용 결제 수단입니다.
 					</div>
 				</div>
-
 				{selectOption === options[0].text && (
 					<div className={styles.buyBatteryList}>
 						<div className={styles.listTitle}>쿠키 패키지</div>
@@ -75,6 +77,16 @@ function BuyBattery() {
 									batteryNum={data.count}
 									cost={data.price}
 								/>
+							))}
+						</div>
+					</div>
+				)}
+				{selectOption === options[1].text && (
+					<div className={styles.buyBatteryList}>
+						<div className={styles.listTitle}>충전내역</div>
+						<div className={styles.buyListContent}>
+							{buyList.map((item, index) => (
+								<BuyList style={index === buyList.length - 1 ? 'none' : '1px solid #d1d5db'} name={item.batteryItem.name} price={item.batteryItem.price} count={item.batteryItem.count} amount={item.amount} provider={item.provider} createdAt={item.createdAt} />
 							))}
 						</div>
 					</div>
