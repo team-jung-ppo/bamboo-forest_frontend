@@ -11,7 +11,7 @@ export default function useSocket() {
 
   useEffect(() => {
     if (!socket) {
-      socket = io(`${import.meta.env.VITE_WAS_URL}/message`, {
+      socket = io(`${import.meta.env.VITE_SOCKET_URL}/no`, {
         transports: ['websocket'],
       });
       socket.on('connect_error', (err) => {
