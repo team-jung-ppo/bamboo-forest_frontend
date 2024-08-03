@@ -1,5 +1,5 @@
 import styles from './buyBattery.module.css';
-import BuyBatteryComponent from '../common/Batteries/BuyBatteryComponent';
+import BuyBatteryComponent from './BuyBatteryComponent.jsx';
 import Header from '../common/Header/Header';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -39,9 +39,6 @@ function BuyBattery() {
 	}, []);
 	return (
 		<div className={styles.buyBattery}>
-			<div className={styles.topContainer}>
-				<Header />
-			</div>
 			<MyBatteryInfo />
 			<div className={styles.contentBlock}>
 				<div className={styles.options}>

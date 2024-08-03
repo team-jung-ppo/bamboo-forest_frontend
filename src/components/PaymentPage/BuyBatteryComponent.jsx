@@ -1,6 +1,6 @@
 import styles from './buyBatteryComponent.module.css';
 import {useCallback} from "react";
-import {usePurchaseBattery} from "../../../hooks/battery/usePurchaseBattery.js";
+import {usePurchaseBattery} from "../../hooks/battery/usePurchaseBattery.js";
 import {useNavigate} from "react-router-dom";
 
 function BuyBatteryComponent({ name, batteryNum, cost}) {

@@ -11,9 +11,13 @@
 
 @keyframes FadeOut {
     0% {
+        width: 350px;
+        position: relative;
         transform: translateX(0);
     }
     to {
+        width: 0;
+        position: relative;
         transform: translateX(-350px);
     }
 }
@@ -23,6 +27,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    height: 100%;
     background-color: white;
     border-right: 1px solid #D1D5DB;
     transform: translateX(-350px);
@@ -31,7 +36,7 @@
 .block_true {
     width: 350px;
     position: relative;
-    height: 100vh;
+    height: 100%;
     background-color: white;
     border-right: 1px solid #D1D5DB;
     animation: FadeIn 0.2s forwards;
@@ -42,9 +47,10 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    height: 100%;
     background-color: white;
     border-right: 1px solid #D1D5DB;
-    animation: FadeOut 0.2s;
+    animation: FadeOut 0.2s forwards;
     transform: translateX(-350px);
 }
 
