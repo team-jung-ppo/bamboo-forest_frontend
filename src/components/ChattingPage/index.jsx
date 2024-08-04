@@ -1,16 +1,47 @@
-import { SideBar } from '../common/SideBar/SideBar.jsx';
 import styles from './chatting.module.css';
 import { useEffect, useRef, useState } from 'react';
 import { ChattingContainer } from './ChattingContainer.jsx';
-import { useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import { getCookie } from '../../services/cookie.js';
 import Swal from 'sweetalert2';
+import {ChattingInput} from "./ChattingInput.jsx";
+import useWebSocket from 'react-use-websocket';
+import useSocket from "../../hooks/socket/useSocket.js";
+import {io} from "socket.io-client";
 
 export function ChattingPage() {
 	const [isError, setIsError] = useState(false);
 	const hasAccessChecked = useRef(false);
+	const location = useLocation();
+	const ws = useRef(null);
+	const memberId = useRef(1);
 
 	const navigate = useNavigate();
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+	}
+
+	useEffect(() => {
+		const accessToken = getCookie('accessToken');
+		const roomId = location.state.roomId;
+
+		// react-use-websocket 방식
+
+
+
+		// // socket.io 방식
+		// const socket = io(`${import.meta.env.VITE_SOCKET_URL}`, {
+		// 	path: '/ws',
+		// 	extraHeaders: {
+		// 		Authorization: `${accessToken}`,
+		// 		roomId: `${roomId}`,
+		// 		memberId: memberId.current++,
+		// 	},
+		// 	transports: ['polling'],
+		// });
+
+	}, []);
 
 	useEffect(() => {
 		if (hasAccessChecked.current) return;
@@ -38,6 +69,9 @@ export function ChattingPage() {
 					/>
 				</div>
 			)}
+			<div className={styles.inputBlock}>
+				<ChattingInput />
+			</div>
 		</div>
 	);
 }

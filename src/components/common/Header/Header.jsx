@@ -4,7 +4,7 @@ import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { getCookie } from '../../../services/cookie';
+import {getCookie, setCookie} from '../../../services/cookie';
 import { useState } from 'react';
 import { Batteries } from '../Batteries/Batteries';
 
@@ -24,11 +24,29 @@ function Header() {
 			);
 			const userData = response.data;
 			setUserinfo(userData);
-		} catch (e) {
-			if (axios.isAxiosError(e)) {
-				console.error('Axios error:', e.response?.data || e.message);
+		} catch (error) {
+			if (error.response && error.response.data.code === 'E003') {
+				try {
+					const refreshToken = getCookie('refreshToken');
+					const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`, null, {
+						withCredentials: true,
+						headers: {
+							'Authorization': `Bearer ${refreshToken}`
+						}
+					});
+					const { accessToken: newAccessToken, refreshToken: newRefreshToken } = res.data;
+					setCookie('accessToken', newAccessToken);
+					setCookie('refreshToken', newRefreshToken);
+					fetchUserInfo();
+					return;
+				} catch (reissuanceError) {
+					console.error("Error reissuing token", reissuanceError);
+				}
+			}
+			if (axios.isAxiosError(error)) {
+				console.error('Axios error:', error.response?.data || error.message);
 			} else {
-				console.error('Unknown error:', e);
+				console.error('Unknown error:', error);
 			}
 		}
 	};
@@ -39,7 +57,7 @@ function Header() {
 
 	return (
 		<div className={styles.header}>
-			<Link to="/chatting">
+			<Link to="/">
 				<div className={styles.profile}>
 					<img
 						className={styles.profileImg}
@@ -47,7 +65,7 @@ function Header() {
 						alt="profile"
 					/>
 					<div className={styles.profileInfo}>
-						<h3>아저씨</h3>
+						<h3>대나무숲</h3>
 					</div>
 				</div>
 			</Link>
@@ -71,7 +89,7 @@ function Header() {
 					</div>
 				</Link>
 
-				<div className={styles.batteryinfo}>
+				<div className={styles.batteryInfo}>
 					<Batteries />
 				</div>
 			</div>

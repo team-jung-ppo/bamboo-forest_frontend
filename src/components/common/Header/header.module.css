@@ -2,6 +2,7 @@
 	width: 100%;
 	padding: 0 0 0.3em 0.2em;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	height: 10vh;
 	background-color: white;
@@ -21,7 +22,6 @@
 
 .rightHeader {
 	display: flex;
-	margin-left: auto;
 	align-items: center;
 }
 
@@ -32,11 +32,23 @@
 .buyBattery {
 	margin: 10px;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	color: #d69d0b;
+	font-weight: bold;
+}
+
+.buyBattery:hover {
+	text-shadow: 0px 0px 10px #d69d0b;
 }
 
 .buyBattery > div {
 	margin: 0 0.2rem;
+}
+
+.buyBatteryIcon {
+	position: relative;
+	top: 4px;
 }
 
 .buyChatbot {
@@ -44,6 +56,17 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-weight: bold;
+}
+
+.buyChatbot:hover {
+	text-shadow: 0px 0px 10px #4e4e4e;
+}
+
+.buyChatbotIcon {
+	position: relative;
+	top: 4px;
+	left: 8px;
 }
 
 .profileInfo {
@@ -59,7 +82,7 @@
 	.helpTxt,
 	.buyChatbotTxt,
 	.userinfoTxt,
-	.batteryinfo {
+	.batteryInfo {
 		display: none;
 	}
 }
