@@ -37,7 +37,6 @@ function BuyBattery() {
 		}
 	};
 	useEffect(() => {
-		console.log(buyList);
 		fetchBatteryData();
 	}, []);
 	return (
@@ -86,7 +85,7 @@ function BuyBattery() {
 						<div className={styles.listTitle}>충전내역</div>
 						<div className={styles.buyListContent}>
 							{buyList.map((item, index) => (
-								<BuyList style={index === buyList.length - 1 ? 'none' : '1px solid #d1d5db'} name={item.batteryItem.name} price={item.batteryItem.price} count={item.batteryItem.count} amount={item.amount} provider={item.provider} createdAt={item.createdAt} />
+								<BuyList key={item.id} style={index === buyList.length - 1 ? 'none' : '1px solid #d1d5db'} name={item.batteryItem.name} price={item.batteryItem.price} count={item.batteryItem.count} amount={item.amount} provider={item.provider} createdAt={item.createdAt} />
 							))}
 						</div>
 					</div>
