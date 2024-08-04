@@ -33,7 +33,7 @@
 @media (max-width: 834px) {
 	.buychatbotlist > div {
 		flex: 1 1 50%;
-		max-width: 40%;
+		max-width: 100%;
 	}
 }
 

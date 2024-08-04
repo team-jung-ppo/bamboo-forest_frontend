@@ -45,3 +45,52 @@
 .info {
 	padding: 1rem 2rem;
 }
+
+@media (max-width: 700px) {
+	.container {
+		/* display: flex;
+		flex-direction: column; */
+	}
+	.img {
+		width: 6rem;
+		height: 6rem;
+	}
+	.name {
+		font-size: 1.2rem;
+	}
+	.description {
+		font-size: 0.8rem;
+	}
+	.cost {
+		font-size: 0.8rem;
+	}
+}
+
+@media (max-width: 540px) {
+	.img {
+		display: none;
+	}
+	.name {
+		font-size: 1.2rem;
+	}
+	.description {
+		font-size: 0.8rem;
+	}
+	.cost {
+		font-size: 0.8rem;
+	}
+}
+@media (max-width: 400px) {
+	.img {
+		display: none;
+	}
+	.name {
+		font-size: 0.8rem;
+	}
+	.description {
+		display: none;
+	}
+	.cost {
+		font-size: 0.8rem;
+	}
+}
