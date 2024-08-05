@@ -1,5 +1,6 @@
 .buychatbotlist {
 	display: flex;
+	width: 100%;
 	flex-wrap: wrap;
 	justify-content: start;
 	padding: 1.4rem;

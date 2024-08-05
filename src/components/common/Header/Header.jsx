@@ -4,7 +4,7 @@ import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import {getCookie, removeCookie, setCookie} from '../../../services/cookie';
+import { getCookie, removeCookie, setCookie } from '../../../services/cookie';
 import { useState } from 'react';
 import { Batteries } from '../Batteries/Batteries';
 
@@ -14,12 +14,16 @@ function Header() {
 
 	const onLogout = async () => {
 		try {
-			const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/logout`, null, {
-				withCredentials: true,
-				headers: {
-					Authorization: `${accessToken}`,
-				}
-			});
+			const res = await axios.post(
+				`${import.meta.env.VITE_WAS_URL}/api/members/logout`,
+				null,
+				{
+					withCredentials: true,
+					headers: {
+						Authorization: `${accessToken}`,
+					},
+				},
+			);
 			if (res.status === 204) {
 				removeCookie('accessToken');
 				removeCookie('refreshToken');
@@ -28,7 +32,7 @@ function Header() {
 		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
 
 	const fetchUserInfo = async () => {
 		try {
@@ -47,19 +51,24 @@ function Header() {
 			if (error.response && error.response.data.code === 'E003') {
 				try {
 					const refreshToken = getCookie('refreshToken');
-					const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`, null, {
-						withCredentials: true,
-						headers: {
-							'Authorization': `${refreshToken}`
-						}
-					});
-					const { accessToken: newAccessToken, refreshToken: newRefreshToken } = res.data;
+					const res = await axios.post(
+						`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`,
+						null,
+						{
+							withCredentials: true,
+							headers: {
+								Authorization: `${refreshToken}`,
+							},
+						},
+					);
+					const { accessToken: newAccessToken, refreshToken: newRefreshToken } =
+						res.data;
 					setCookie('accessToken', newAccessToken);
 					setCookie('refreshToken', newRefreshToken);
 					fetchUserInfo();
 					return;
 				} catch (reissuanceError) {
-					console.error("Error reissuing token", reissuanceError);
+					console.error('Error reissuing token', reissuanceError);
 				}
 			}
 			if (axios.isAxiosError(error)) {
@@ -107,20 +116,20 @@ function Header() {
 				</Link>
 				{accessToken && (
 					<div className={styles.batteryInfo}>
-						<Batteries/>
+						<Batteries />
 					</div>
 				)}
-				{
-					!accessToken ? (
-						<div className={styles.authButton}>
-							<Link to="/login">로그인</Link>
-						</div>
-					) : (
-						<div className={styles.authButton}>
-							<button onClick={onLogout}>로그아웃</button>
-						</div>
-					)
-				}
+				{!accessToken ? (
+					<div className={styles.authButton}>
+						<Link to="/login">
+							<button>로그인</button>
+						</Link>
+					</div>
+				) : (
+					<div className={styles.authButton}>
+						<button onClick={onLogout}>로그아웃</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);
