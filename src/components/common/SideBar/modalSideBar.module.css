@@ -114,7 +114,7 @@
 }
 
 .logo {
-    height: 20vh;
+    height: 15vh;
 }
 
 .title {
@@ -124,6 +124,6 @@
 }
 
 .content {
-    height: 64vh;
+    height: 69vh;
     overflow-y: scroll;
 }

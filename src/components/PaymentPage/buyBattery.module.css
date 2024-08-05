@@ -92,6 +92,7 @@
 	flex-direction: column;
 	border: 1px #d1d5db solid;
 	border-radius: 2px;
+	margin-bottom: 5em;
 }
 
 @media screen and (max-width: 992px){

@@ -18,6 +18,10 @@
     border-radius: 5px;
 }
 
+.userBattery p {
+    font-weight: 600;
+}
+
 @media screen and (max-width: 480px) {
     .title {
         font-size: 14px;

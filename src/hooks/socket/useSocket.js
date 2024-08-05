@@ -11,12 +11,14 @@ export default function useSocket() {
 
   useEffect(() => {
     if (!socket) {
-      socket = io(`${import.meta.env.VITE_SOCKET_URL}/no`, {
+      socket = io(`${import.meta.env.VITE_SOCKET_URL}`, {
+        path: '/ws',
         transports: ['websocket'],
       });
       socket.on('connect_error', (err) => {
         console.error(err);
         console.log(`connect_error due to ${err.message}`);
+        socket = null;
       })
     }
   }, []);

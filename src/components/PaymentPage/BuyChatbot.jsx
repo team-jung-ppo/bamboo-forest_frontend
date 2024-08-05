@@ -2,9 +2,7 @@ import styles from './buyChatbot.module.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 import ChatBotComponent from '../common/ChatBot/ChatBotComponent';
-import { Batteries } from '../common/Batteries/Batteries';
-import Header from '../common/Header/Header';
-import { getCookie } from '../../services/cookie';
+import {getCookie, setCookie} from '../../services/cookie';
 import { useState } from 'react';
 
 function BuyChatbot() {
@@ -23,11 +21,29 @@ function BuyChatbot() {
 			);
 			const userData = response.data;
 			setChatbotData(userData);
-		} catch (e) {
-			if (axios.isAxiosError(e)) {
-				console.error('Axios error:', e.response?.data || e.message);
+		} catch (error) {
+			if (error.response && error.response.data.code === 'E003') {
+				try {
+					const refreshToken = getCookie('refreshToken');
+					const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`, null, {
+						withCredentials: true,
+						headers: {
+							'Authorization': `Bearer ${refreshToken}`
+						}
+					});
+					const { accessToken: newAccessToken, refreshToken: newRefreshToken } = res.data;
+					setCookie('accessToken', newAccessToken);
+					setCookie('refreshToken', newRefreshToken);
+					fetchChatbotInfo();
+					return;
+				} catch (reissuanceError) {
+					console.error("Error reissuing token", reissuanceError);
+				}
+			}
+			if (axios.isAxiosError(error)) {
+				console.error('Axios error:', error.response?.data || error.message);
 			} else {
-				console.error('Unknown error:', e);
+				console.error('Unknown error:', error);
 			}
 		}
 	};
