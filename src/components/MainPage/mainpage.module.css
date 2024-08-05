@@ -1,9 +1,47 @@
-* {
-	margin-bottom: 30px;
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 3em;
 }
 
-.concepts {
-	display: flex;
-	margin-top: 60px;
-	justify-content: center;
+.texts {
+	margin-bottom: 3em;
+}
+
+.titleTxt {
+	font-weight: 600;
+	font-size: 4em;
+}
+
+.subTxt {
+	text-align: center;
+}
+
+.articles {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 2fr 1fr 1fr;
+}
+
+.articleBox {
+	border: 2px solid #d1d5db;
+	margin: 0.6em;
+	padding: 0.6em;
+	border-radius: 12px;
+	padding: 1em 2em;
+}
+
+.name {
+	font-weight: 700;
+	margin-bottom: 1em;
+	padding-bottom: 0.6em;
+	border-bottom: 2px solid #d1d5db;
+}
+
+.lastcomment {
+	margin-top: 4rem;
+	font-size: 2rem;
+	font-weight: 600;
 }
