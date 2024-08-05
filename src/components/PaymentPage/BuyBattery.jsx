@@ -2,7 +2,7 @@ import styles from './buyBattery.module.css';
 import BuyBatteryComponent from './BuyBatteryComponent.jsx';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { getCookie } from '../../services/cookie';
+import {getCookie, setCookie} from '../../services/cookie';
 import { MyBatteryInfo } from './MyBatteryInfo.jsx';
 import { options } from '../../constants/payBatteryOptions.js';
 import {useGetBuyBatteryList} from "../../hooks/battery/useGetBuyBatteryList.js";
@@ -28,11 +28,29 @@ function BuyBattery() {
 			);
 			const userData = response.data;
 			setBuyBatteryList(userData);
-		} catch (e) {
-			if (axios.isAxiosError(e)) {
-				console.error('Axios error:', e.response?.data || e.message);
+		} catch (error) {
+			if (error.response && error.response.data.code === 'E003') {
+				try {
+					const refreshToken = getCookie('refreshToken');
+					const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`, null, {
+						withCredentials: true,
+						headers: {
+							'Authorization': `Bearer ${refreshToken}`
+						}
+					});
+					const { accessToken: newAccessToken, refreshToken: newRefreshToken } = res.data;
+					setCookie('accessToken', newAccessToken);
+					setCookie('refreshToken', newRefreshToken);
+					fetchBatteryData();
+					return;
+				} catch (reissuanceError) {
+					console.error("Error reissuing token", reissuanceError);
+				}
+			}
+			if (axios.isAxiosError(error)) {
+				console.error('Axios error:', error.response?.data || e.message);
 			} else {
-				console.error('Unknown error:', e);
+				console.error('Unknown error:', error);
 			}
 		}
 	};

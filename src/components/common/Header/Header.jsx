@@ -4,15 +4,34 @@ import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { getCookie } from '../../../services/cookie';
+import {getCookie, removeCookie, setCookie} from '../../../services/cookie';
 import { useState } from 'react';
 import { Batteries } from '../Batteries/Batteries';
 
 function Header() {
 	const [userinfo, setUserinfo] = useState([]);
+	const accessToken = getCookie('accessToken');
+
+	const onLogout = async () => {
+		try {
+			const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/logout`, null, {
+				withCredentials: true,
+				headers: {
+					Authorization: `${accessToken}`,
+				}
+			});
+			if (res.status === 204) {
+				removeCookie('accessToken');
+				removeCookie('refreshToken');
+				window.location.reload();
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 	const fetchUserInfo = async () => {
 		try {
-			const accessToken = getCookie('accessToken');
 			const response = await axios.get(
 				`${import.meta.env.VITE_WAS_URL}/api/members/profile`,
 				{
@@ -24,11 +43,29 @@ function Header() {
 			);
 			const userData = response.data;
 			setUserinfo(userData);
-		} catch (e) {
-			if (axios.isAxiosError(e)) {
-				console.error('Axios error:', e.response?.data || e.message);
+		} catch (error) {
+			if (error.response && error.response.data.code === 'E003') {
+				try {
+					const refreshToken = getCookie('refreshToken');
+					const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`, null, {
+						withCredentials: true,
+						headers: {
+							'Authorization': `Bearer ${refreshToken}`
+						}
+					});
+					const { accessToken: newAccessToken, refreshToken: newRefreshToken } = res.data;
+					setCookie('accessToken', newAccessToken);
+					setCookie('refreshToken', newRefreshToken);
+					fetchUserInfo();
+					return;
+				} catch (reissuanceError) {
+					console.error("Error reissuing token", reissuanceError);
+				}
+			}
+			if (axios.isAxiosError(error)) {
+				console.error('Axios error:', error.response?.data || error.message);
 			} else {
-				console.error('Unknown error:', e);
+				console.error('Unknown error:', error);
 			}
 		}
 	};
@@ -39,7 +76,7 @@ function Header() {
 
 	return (
 		<div className={styles.header}>
-			<Link to="/chatting">
+			<Link to="/">
 				<div className={styles.profile}>
 					<img
 						className={styles.profileImg}
@@ -47,11 +84,10 @@ function Header() {
 						alt="profile"
 					/>
 					<div className={styles.profileInfo}>
-						<h3>아저씨</h3>
+						<h3>대나무숲</h3>
 					</div>
 				</div>
 			</Link>
-
 			<div className={styles.rightHeader}>
 				<Link to="/paybattery">
 					<div className={styles.buyBattery}>
@@ -61,7 +97,6 @@ function Header() {
 						</div>
 					</div>
 				</Link>
-
 				<Link to="/buychatbot">
 					<div className={styles.buyChatbot}>
 						<div className={styles.buyChatbotTxt}>Buy ChatBot</div>
@@ -70,10 +105,22 @@ function Header() {
 						</div>
 					</div>
 				</Link>
-
-				<div className={styles.batteryinfo}>
-					<Batteries />
-				</div>
+				{accessToken && (
+					<div className={styles.batteryInfo}>
+						<Batteries/>
+					</div>
+				)}
+				{
+					!accessToken ? (
+						<div className={styles.authButton}>
+							<Link to="/login">로그인</Link>
+						</div>
+					) : (
+						<div className={styles.authButton}>
+							<button onClick={onLogout}>로그아웃</button>
+						</div>
+					)
+				}
 			</div>
 		</div>
 	);

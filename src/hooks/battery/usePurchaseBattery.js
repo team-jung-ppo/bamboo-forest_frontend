@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getCookie } from '../../services/cookie.js';
+import {getCookie, setCookie} from '../../services/cookie.js';
 import axios from 'axios';
 
 export function usePurchaseBattery(batteryName) {
@@ -28,6 +28,24 @@ export function usePurchaseBattery(batteryName) {
 
         setPurchaseBattery({ ...res.data, name: batteryName }); // res에서 실제 데이터를 추출합니다.
       } catch (error) {
+        if (error.response && error.response.data.code === 'E003') {
+          try {
+            const refreshToken = getCookie('refreshToken');
+            const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`, null, {
+              withCredentials: true,
+              headers: {
+                'Authorization': `Bearer ${refreshToken}`
+              }
+            });
+            const { accessToken: newAccessToken, refreshToken: newRefreshToken } = res.data;
+            setCookie('accessToken', newAccessToken);
+            setCookie('refreshToken', newRefreshToken);
+            postPurchaseBattery();
+            return;
+          } catch (reissuanceError) {
+            console.error("Error reissuing token", reissuanceError);
+          }
+        }
         console.error('Error fetching purchase battery:', error);
       }
     };

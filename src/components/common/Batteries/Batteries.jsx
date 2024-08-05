@@ -11,7 +11,7 @@ export function Batteries() {
 		<>
 			<div className={styles.batteriesInfo}>
 				<div className={styles.batteriesCnt}>
-					🔋 현재 보유한 건전지 {userBattery}개
+					🔋{userBattery}
 				</div>
 			</div>
 		</>

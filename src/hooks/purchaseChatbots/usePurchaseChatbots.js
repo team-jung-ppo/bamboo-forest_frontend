@@ -25,16 +25,18 @@ export function usePurchaseChatbots() {
       } catch (error) {
         if (error.response && error.response.data.code === 'E003') {
           try {
+            const refreshToken = getCookie('refreshToken');
             const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`, null, {
               withCredentials: true,
               headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${refreshToken}`
               }
             });
-            const { accessToken: newAccessToken, refreshToken } = res.data;
+            const { accessToken: newAccessToken, refreshToken: newRefreshToken } = res.data;
             setCookie('accessToken', newAccessToken);
-            setCookie('refreshToken', refreshToken);
-            window.location.reload();
+            setCookie('refreshToken', newRefreshToken);
+            fetchPurchaseChatbots();
+            return;
           } catch (reissuanceError) {
             console.error("Error reissuing token", reissuanceError);
           }
