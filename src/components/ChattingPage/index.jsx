@@ -112,7 +112,7 @@ export function ChattingPage() {
         ))
       )}
       <div className={styles.inputBlock}>
-        <ChattingInput onSendMessage={onSendMessage} />
+        <ChattingInput disabled={messages.at(-1)?.type === 'human'} onSendMessage={onSendMessage} />
       </div>
     </div>
   );
