@@ -1,22 +1,26 @@
 import styles from './buyBattery.module.css';
 import BuyBatteryComponent from './BuyBatteryComponent.jsx';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {getCookie, setCookie} from '../../services/cookie';
 import { MyBatteryInfo } from './MyBatteryInfo.jsx';
 import { options } from '../../constants/payBatteryOptions.js';
 import {useGetBuyBatteryList} from "../../hooks/battery/useGetBuyBatteryList.js";
 import {BuyList} from "./BuyList.jsx";
+import Swal from "sweetalert2";
+import {useNavigate} from "react-router-dom";
 
 
 function BuyBattery() {
 	const [buyBatteryList, setBuyBatteryList] = useState([]);
 	const [selectOption, setSelectOption] = useState('배터리충전');
+	const hasAccessChecked = useRef(false);
 	const buyList = useGetBuyBatteryList();
+	const accessToken = getCookie('accessToken');
+	const navigate = useNavigate();
 
 	const fetchBatteryData = async () => {
 		try {
-			const accessToken = getCookie('accessToken');
 			const response = await axios.get(
 				`${import.meta.env.VITE_WAS_URL}/api/batteries`,
 				{
@@ -55,6 +59,20 @@ function BuyBattery() {
 		}
 	};
 	useEffect(() => {
+		if (hasAccessChecked.current) return;
+		hasAccessChecked.current = true;
+
+		if (!accessToken) {
+			Swal.fire({
+				title: '로그인 후 이용가능합니다.',
+				icon: 'error',
+				confirmButtonColor: '#3085d6',
+				confirmButtonText: '확인',
+			}).then((result) => {
+				navigate('/login');
+			});
+		}
+
 		fetchBatteryData();
 	}, []);
 	return (

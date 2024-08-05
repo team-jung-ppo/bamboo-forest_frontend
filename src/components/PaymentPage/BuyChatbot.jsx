@@ -1,12 +1,18 @@
 import styles from './buyChatbot.module.css';
 import axios from 'axios';
-import { useEffect } from 'react';
+import {useEffect, useRef} from 'react';
 import ChatBotComponent from '../common/ChatBot/ChatBotComponent';
 import {getCookie, setCookie} from '../../services/cookie';
 import { useState } from 'react';
+import Swal from "sweetalert2";
+import {useNavigate} from "react-router-dom";
 
 function BuyChatbot() {
 	const [chatbotData, setChatbotData] = useState([]);
+	const hasAccessChecked = useRef(false);
+	const accessToken = getCookie('accessToken');
+	const navigate = useNavigate();
+
 	const fetchChatbotInfo = async () => {
 		try {
 			const accessToken = getCookie('accessToken');
@@ -49,6 +55,20 @@ function BuyChatbot() {
 	};
 
 	useEffect(() => {
+		if (hasAccessChecked.current) return;
+		hasAccessChecked.current = true;
+
+		if (!accessToken) {
+			Swal.fire({
+				title: '로그인 후 이용가능합니다.',
+				icon: 'error',
+				confirmButtonColor: '#3085d6',
+				confirmButtonText: '확인',
+			}).then((result) => {
+				navigate('/login');
+			});
+		}
+
 		fetchChatbotInfo();
 	}, []);
 
