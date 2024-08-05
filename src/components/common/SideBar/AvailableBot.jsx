@@ -18,9 +18,8 @@ export function AvailableBot({ id, name, url, description, imageUrl, price }) {
           Authorization: `${accessToken}`,
         }
       });
-      console.log(res.data);
       navigate(`/chatting?name=${name}`, {
-        state: res.data
+        state: { ...res.data, imageUrl: imageUrl }
       })
     }
     createRoom();

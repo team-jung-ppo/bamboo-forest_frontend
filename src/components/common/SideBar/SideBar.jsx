@@ -3,14 +3,9 @@ import styles from './sideBar.module.css';
 import LogoImg from '../../../assets/bambooForestLogo.png';
 import { AvailableBot } from './AvailableBot.jsx';
 import { usePurchaseChatbots } from '../../../hooks/purchaseChatbots/usePurchaseChatbots.js';
-import { useEffect } from 'react';
 
 export function SideBar({ open, onToggleSideBar }) {
 	const availableBots = usePurchaseChatbots();
-
-	useEffect(() => {
-		console.log(availableBots);
-	}, [availableBots]);
 
 	return (
 		<div
