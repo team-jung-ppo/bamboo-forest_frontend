@@ -20,7 +20,8 @@ export function AvailableBot({ id, name, url, description, imageUrl, price }) {
       });
       navigate(`/chatting?name=${name}`, {
         state: { ...res.data, imageUrl: imageUrl }
-      })
+      });
+      window.location.reload();
     }
     createRoom();
   }

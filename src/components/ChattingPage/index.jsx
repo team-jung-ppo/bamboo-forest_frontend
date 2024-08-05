@@ -5,7 +5,6 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import {getCookie} from '../../services/cookie.js';
 import Swal from 'sweetalert2';
 import {ChattingInput} from "./ChattingInput.jsx";
-import dayjs from "dayjs";
 import {getCurrentTime} from "../../services/getCurrentTime.js";
 
 export function ChattingPage() {
@@ -34,15 +33,15 @@ export function ChattingPage() {
   }
 
   useEffect(() => {
-    console.log(location.state.imageUrl);
     if (hasAccessChecked.current) return;
     hasAccessChecked.current = true;
 
-    if (!accessToken) {
+    if (!accessToken || !location.state) {
       setIsError(true);
       Swal.fire({
         title: '로그인 후 이용가능합니다.',
         icon: 'error',
+        confirmButtonColor: '#3085d6',
         confirmButtonText: '확인',
       }).then((result) => {
         navigate('/login');
@@ -51,10 +50,8 @@ export function ChattingPage() {
   }, []);
 
   useEffect(() => {
-    if (!location.state) {
-      navigate('/');
-      return;
-    }
+    if (!location.state) return;
+
     setRoomId(location.state.roomId);
 
     ws.current = new WebSocket(`${import.meta.env.VITE_SOCKET_URL}`);
@@ -86,6 +83,15 @@ export function ChattingPage() {
 
       wsInstance.onerror = (error) => {
         console.error('WebSocket error', error);
+        Swal.fire({
+          title: '연결이 끊겼습니다.',
+          text: '메인 페이지로 이동합니다.',
+          icon: 'error',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: '확인',
+        }).then((result) => {
+          navigate('/');
+        });
       };
     };
 
@@ -106,7 +112,7 @@ export function ChattingPage() {
         ))
       )}
       <div className={styles.inputBlock}>
-        <ChattingInput onSendMessage={onSendMessage} />
+        <ChattingInput disabled={messages.at(-1)?.type === 'human'} onSendMessage={onSendMessage} />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import styles from './header.module.css';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { getCookie, removeCookie, setCookie } from '../../../services/cookie';
 import { useState } from 'react';
@@ -11,6 +11,12 @@ import { Batteries } from '../Batteries/Batteries';
 function Header() {
 	const [userinfo, setUserinfo] = useState([]);
 	const accessToken = getCookie('accessToken');
+	const navigate = useNavigate();
+
+	const onGoMainPage = () => {
+		navigate('/');
+		window.location.reload();
+	}
 
 	const onLogout = async () => {
 		try {
@@ -85,18 +91,16 @@ function Header() {
 
 	return (
 		<div className={styles.header}>
-			<Link to="/">
-				<div className={styles.profile}>
-					<img
-						className={styles.profileImg}
-						src="src/assets/bambooForestLogo.png"
-						alt="profile"
-					/>
-					<div className={styles.profileInfo}>
-						<h3>대나무숲</h3>
-					</div>
+			<div className={styles.profile} onClick={onGoMainPage}>
+				<img
+					className={styles.profileImg}
+					src="src/assets/bambooForestLogo.png"
+					alt="profile"
+				/>
+				<div className={styles.profileInfo}>
+					<h3>대나무숲</h3>
 				</div>
-			</Link>
+			</div>
 			<div className={styles.rightHeader}>
 				<Link to="/paybattery">
 					<div className={styles.buyBattery}>
