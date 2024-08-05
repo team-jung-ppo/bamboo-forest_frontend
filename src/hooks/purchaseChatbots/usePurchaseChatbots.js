@@ -29,7 +29,7 @@ export function usePurchaseChatbots() {
             const res = await axios.post(`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`, null, {
               withCredentials: true,
               headers: {
-                'Authorization': `Bearer ${refreshToken}`
+                'Authorization': `${refreshToken}`
               }
             });
             const { accessToken: newAccessToken, refreshToken: newRefreshToken } = res.data;
