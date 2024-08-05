@@ -1,74 +1,113 @@
 import styles from './chatting.module.css';
-import { useEffect, useRef, useState } from 'react';
-import { ChattingContainer } from './ChattingContainer.jsx';
+import {useEffect, useRef, useState} from 'react';
+import {ChattingContainer} from './ChattingContainer.jsx';
 import {useLocation, useNavigate} from 'react-router-dom';
-import { getCookie } from '../../services/cookie.js';
+import {getCookie} from '../../services/cookie.js';
 import Swal from 'sweetalert2';
 import {ChattingInput} from "./ChattingInput.jsx";
+import dayjs from "dayjs";
+import {getCurrentTime} from "../../services/getCurrentTime.js";
 
 export function ChattingPage() {
-	const [isError, setIsError] = useState(false);
-	const hasAccessChecked = useRef(false);
-	const location = useLocation();
-	const ws = useRef(null);
-	const memberId = useRef(1);
+  const [isError, setIsError] = useState(false);
+  const [roomId, setRoomId] = useState('');
+  const hasAccessChecked = useRef(false);
+  const location = useLocation();
+  const accessToken = getCookie('accessToken');
+  const memberId = useRef(1);
+  const ws = useRef(null);
+  const [messages, setMessages] = useState([]);
 
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	const onSubmit = (e) => {
-		e.preventDefault();
-	}
+  const onSendMessage = (message) => {
+    // 메시지 전송
+    if (ws.current && ws.current.readyState === WebSocket.OPEN) {
+      const msg = {
+        message: message,
+        type: "TALK"
+      };
+      ws.current.send(JSON.stringify(msg));
+      console.log(`보낸 메시지: ${message}`);
+      setMessages((prev) => [...prev, {message, time: getCurrentTime(), type: 'human'}]);
+    }
+  }
 
-	useEffect(() => {
-		const accessToken = getCookie('accessToken');
-		const roomId = location.state.roomId;
+  useEffect(() => {
+    console.log(location.state.imageUrl);
+    if (hasAccessChecked.current) return;
+    hasAccessChecked.current = true;
 
-		// react-use-websocket 방식
+    if (!accessToken) {
+      setIsError(true);
+      Swal.fire({
+        title: '로그인 후 이용가능합니다.',
+        icon: 'error',
+        confirmButtonText: '확인',
+      }).then((result) => {
+        navigate('/login');
+      });
+    }
+  }, []);
 
+  useEffect(() => {
+    if (!location.state) {
+      navigate('/');
+      return;
+    }
+    setRoomId(location.state.roomId);
 
+    ws.current = new WebSocket(`${import.meta.env.VITE_SOCKET_URL}`);
 
-		// // socket.io 방식
-		// const socket = io(`${import.meta.env.VITE_SOCKET_URL}`, {
-		// 	path: '/ws',
-		// 	extraHeaders: {
-		// 		Authorization: `${accessToken}`,
-		// 		roomId: `${roomId}`,
-		// 		memberId: memberId.current++,
-		// 	},
-		// 	transports: ['polling'],
-		// });
+    const setupWebSocket = (wsInstance) => {
+      wsInstance.onopen = () => {
+        console.log("채팅 연결 성공");
+        if (ws.current.readyState === WebSocket.OPEN) {
+          ws.current.send(JSON.stringify({
+            message: "채팅 연결",
+            type: "AUTH",
+            token: accessToken,
+            roomId: location.state.roomId,
+            memberId: memberId.current++
+          }));
+        }
+      };
 
-	}, []);
+      wsInstance.onmessage = event => {
+        console.log(event.data);
+        if (event.data !== '메시지를 다시 보내주세요')
+          setMessages((prev) => [...prev, { message: event.data, time: getCurrentTime(), type: 'ai' }]);
+      };
 
-	useEffect(() => {
-		if (hasAccessChecked.current) return;
-		hasAccessChecked.current = true;
+      wsInstance.onclose = (error) => {
+        console.log('WebSocket closed', error);
+        setupWebSocket(wsInstance)
+      };
 
-		const accessToken = getCookie('accessToken');
-		if (!accessToken) {
-			setIsError(true);
-			Swal.fire({
-				title: '로그인 후 이용가능합니다.',
-				icon: 'error',
-				confirmButtonText: '확인',
-			}).then((result) => {
-				navigate('/login');
-			});
-		}
-	}, []);
+      wsInstance.onerror = (error) => {
+        console.error('WebSocket error', error);
+      };
+    };
 
-	return (
-		<div className={styles.block}>
-			{!isError && (
-				<div className={styles.content}>
-					<ChattingContainer
-						message={'테스트메시지테스트메시지테스트메시지테스트메시지'}
-					/>
-				</div>
-			)}
-			<div className={styles.inputBlock}>
-				<ChattingInput />
-			</div>
-		</div>
-	);
+    setupWebSocket(ws.current);
+  }, []);
+
+  return (
+    <div className={styles.block}>
+      {!isError && (
+        messages.map((message, index) => (
+          <div key={index} className={styles.content}>
+            <ChattingContainer
+              message={message}
+              imageUrl={location.state.imageUrl}
+              lastIndex={messages.length - 1 === index}
+            />
+          </div>
+        ))
+      )}
+      <div className={styles.inputBlock}>
+        <ChattingInput onSendMessage={onSendMessage} />
+      </div>
+    </div>
+  );
 }

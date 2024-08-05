@@ -2,13 +2,13 @@ import styles from './chattingInput.module.css';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import {useEffect, useRef} from "react";
 
-export function ChattingInput({disabled, sendChatMessage}) {
+export function ChattingInput({disabled, onSendMessage}) {
   const inputRef = useRef(null);
 
   const submitMessage = () => {
     const input = inputRef.current;
     if (input?.value) {
-      sendChatMessage(input.value);
+      onSendMessage(input.value);
       input.value = '';
     }
   };
@@ -44,7 +44,7 @@ export function ChattingInput({disabled, sendChatMessage}) {
         maxLength={1000}
       />
       <div className={styles.sendButton}>
-        <PlayCircleIcon style={{fontSize: '32px'}}/>
+        <PlayCircleIcon onClick={submitMessage} style={{fontSize: '32px'}}/>
       </div>
     </div>
   )

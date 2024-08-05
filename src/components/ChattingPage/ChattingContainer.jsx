@@ -1,40 +1,31 @@
-import {useEffect, useState} from "react";
+import styles from './chattingContainer.module.css';
 
-export function ChattingContainer({ message, speed = 40, onComplete, isResponse = true }) {
-  const [displayedMessage, setDisplayedMessage] = useState('');
-  const [index, setIndex] = useState(0);
-
-  // const reset = () => {
-  //   setDisplayedMessage('');
-  //   setIndex(0);
-  // };
-  //
-  // useEffect(() => {
-  //   const typingInterval = setInterval(() => {
-  //     // message 변경 시 초기화
-  //     if (message.slice(0, displayedMessage.length) !== displayedMessage) {
-  //       reset();
-  //       return;
-  //     }
-  //
-  //     if (index < message.length) {
-  //       setDisplayedMessage(displayedMessage + message[index]); // 한 글자씩 추가
-  //       setIndex(index + 1);
-  //     } else {
-  //       clearInterval(typingInterval); // 인터벌 카운트 제거
-  //       if (onComplete) onComplete(); // 콜백
-  //     }
-  //   }, speed);
-  //
-  //   return () => clearInterval(typingInterval); // 언마운트 시 인터벌 제거
-  // }, [message, speed, index, onComplete]);
+export function ChattingContainer({message, imageUrl, lastIndex}) {
+  console.log(imageUrl);
 
   return (
-    <div>
-      <div></div>
-      <div>
-        <div>{isResponse ? displayedMessage : message}</div>
-      </div>
+    <div className={styles.block} style={{marginBottom: lastIndex ? '4em' : '0'}}>
+      {message.type === 'ai' && (
+        <>
+          <div className={styles.AIprofile}>
+            <img src={imageUrl} alt="chatbotProfile" style={{width: '42px', height: '42px'}}/>
+            <p>{message.time}</p>
+          </div>
+          <div className={styles.AImessageBlock}>
+            <div className={styles.AImessageText}>{message.message}</div>
+          </div>
+        </>
+      )}
+      {message.type === 'human' && (
+        <>
+          <div className={styles.humanProfile}>
+            <p>{message.time}</p>
+          </div>
+          <div className={styles.humanMessageBlock}>
+            <div className={styles.humanMessageText}>{message.message}</div>
+          </div>
+        </>
+      )}
     </div>
   )
 }

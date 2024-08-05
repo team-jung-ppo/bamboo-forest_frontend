@@ -1,5 +1,11 @@
+@font-face {
+	font-family: 'pretendard';
+	src: url("src/assets/fonts/Pretendard.otf");
+}
+
 body {
 	margin: 0;
+	font-family: pretendard;
 }
 
 body div {
