@@ -57,7 +57,7 @@ function Header() {
 						{
 							withCredentials: true,
 							headers: {
-								Authorization: `Bearer ${refreshToken}`,
+								Authorization: `${refreshToken}`,
 							},
 						},
 					);
