@@ -5,9 +5,6 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import { getCookie } from '../../services/cookie.js';
 import Swal from 'sweetalert2';
 import {ChattingInput} from "./ChattingInput.jsx";
-import useWebSocket from 'react-use-websocket';
-import useSocket from "../../hooks/socket/useSocket.js";
-import {io} from "socket.io-client";
 
 export function ChattingPage() {
 	const [isError, setIsError] = useState(false);
