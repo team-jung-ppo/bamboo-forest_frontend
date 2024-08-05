@@ -12,6 +12,7 @@ const OauthRedirectPage = () => {
     setCookie('accessToken', accessToken);
     setCookie('refreshToken', refreshToken);
     navigate("/");
+    window.location.reload();
   }, []);
 
   return (
