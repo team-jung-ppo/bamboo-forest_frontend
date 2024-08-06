@@ -1,0 +1,140 @@
+.batteryComponent {
+	width: 48%;
+	height: 25%;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #d1d5db;
+	justify-content: space-between;
+	margin-top: 1em;
+}
+
+.info {
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.batteryIcon {
+	margin: 10px;
+	font-size: 17px;
+}
+
+.numOfBattery {
+	margin: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.costOfBattery {
+	width: 20%;
+	text-align: center;
+	font-size: 10px;
+	font-weight: bold;
+	color: white;
+	padding: 0.5em 0;
+	background-color: #00c63c;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+	.batteryIcon {
+		font-size: 16px;
+	}
+
+	.title {
+		font-size: 12px;
+	}
+
+	.numOfBattery {
+		font-size: 9px;
+	}
+
+	.costOfBattery {
+		width: 25%;
+		font-size: 8px;
+	}
+}
+
+@media screen and (max-width: 880px) {
+	.batteryComponent {
+		width: 100%;
+		height: 9%;
+		margin-top: 2.5em;
+	}
+
+	.title {
+		font-size: 16px;
+	}
+
+	.numOfBattery {
+		font-size: 14px;
+	}
+
+	.costOfBattery {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.title {
+		font-size: 15px;
+	}
+
+	.numOfBattery {
+		font-size: 13px;
+	}
+
+	.costOfBattery {
+		width: 25%;
+		font-size: 11px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.batteryComponent {
+		margin-top: 1.9em;
+	}
+
+	.batteryIcon {
+		font-size: 15px;
+	}
+
+	.title {
+		font-size: 10px;
+	}
+
+	.numOfBattery {
+		font-size: 10px;
+	}
+
+	.costOfBattery {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.batteryIcon {
+		font-size: 14px;
+	}
+
+	.title {
+		font-size: 9px;
+	}
+
+	.numOfBattery {
+		font-size: 9px;
+	}
+
+	.costOfBattery {
+		font-size: 9px;
+	}
+}
+
+.costOfBattery:hover {
+	background-color: #00d000;
+}

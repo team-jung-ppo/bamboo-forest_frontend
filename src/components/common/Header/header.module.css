@@ -1,0 +1,115 @@
+.header {
+	width: 100%;
+	padding: 0 0 0.3em 0.2em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 10vh;
+	background-color: white;
+	border-bottom: 1px solid #d1d5db;
+	margin-right: 0.6em;
+}
+
+.profile {
+	cursor: pointer;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.profileImg {
+	width: 3rem;
+	height: 3rem;
+}
+
+.profileInfo {
+	margin: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+	.profileInfo {
+		display: none;
+	}
+}
+
+.rightHeader {
+	display: flex;
+	align-items: center;
+}
+
+.rightHeader span {
+	margin: 2rem;
+}
+
+.buyBattery {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #d69d0b;
+	font-weight: bold;
+}
+
+.buyBattery:hover {
+	text-shadow: 0px 0px 10px #d69d0b;
+}
+
+.buyBattery > div {
+	margin: 0 0.2rem;
+}
+
+.buyBatteryIcon {
+	position: relative;
+	top: 4px;
+}
+
+.buyChatbot {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+}
+
+.buyChatbot:hover {
+	text-shadow: 0px 0px 10px #4e4e4e;
+}
+
+.buyChatbotIcon {
+	position: relative;
+	top: 4px;
+	left: 8px;
+}
+
+.authButton button {
+	margin-left: 1rem;
+	margin-right: 1rem;
+	background-color: black;
+	padding: 0.4rem 1.2rem;
+	border-radius: 5px;
+	color: white;
+	font-size: 14px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+	.authButton button {
+		font-size: 10px;
+	}
+}
+
+@media (max-width: 1100px) {
+	.buyBatteryTxt,
+	.helpTxt,
+	.buyChatbotTxt,
+	.userinfoTxt,
+	.batteryInfo {
+		display: none;
+	}
+}

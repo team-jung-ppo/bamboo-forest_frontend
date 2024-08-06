@@ -1,0 +1,36 @@
+.paymentBlock {
+  width: 80%;
+  min-width: 600px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.terms {
+  width: 80%;
+  min-width: 600px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.button {
+  width: 77%;
+  min-width: 450px;
+  max-width: 1250px;
+  margin: 0 auto;
+  height: 3rem;
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+  border-radius: 0.5rem; /* rounded-lg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.button:hover {
+  background-color: #2563eb; /* darken blue-500 for hover effect */
+}

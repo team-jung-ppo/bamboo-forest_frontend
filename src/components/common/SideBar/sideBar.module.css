@@ -1,0 +1,100 @@
+@keyframes FadeIn {
+    0% {
+        width: 50px;
+        transform: translateX(-350px);
+    }
+    to {
+        width: 350px;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes FadeOut {
+    0% {
+        width: 310px;
+        position: relative;
+        transform: translateX(0);
+    }
+    to {
+        width: 0;
+        position: relative;
+        transform: translateX(-350px);
+    }
+}
+
+.block {
+    width: 350px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    transform: translateX(-350px);
+}
+
+.block_true {
+    width: 350px;
+    position: relative;
+    height: 100%;
+    background-color: white;
+    animation: FadeIn 0.2s forwards;
+}
+
+.block_false {
+    width: 350px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    animation: FadeOut 0.2s forwards;
+    transform: translateX(-350px);
+}
+
+@media screen and (max-width: 768px) {
+    .block {
+        display: none;
+    }
+
+    .block_true {
+        display: none;
+    }
+
+    .block_false {
+        display: none;
+    }
+}
+
+.arrowBlock {
+    text-align: right;
+    height: 5vh;
+}
+
+.arrow {
+    margin: 8px 12px 0 0;
+    color: black;
+    cursor: pointer;
+    border-radius: 12px;
+    position: absolute;
+    right: 0;
+}
+
+.arrow:hover {
+    background-color: rgba(233, 233, 233, 0.3);
+}
+
+.logo {
+    height: 15vh;
+}
+
+.title {
+    height: 5vh;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content {
+    height: 69vh;
+    overflow-y: scroll;
+}

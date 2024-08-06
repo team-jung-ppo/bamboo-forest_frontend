@@ -1,0 +1,54 @@
+.block {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    padding: 0.25em 1.5em;
+}
+
+.AIprofile {
+    display: flex;
+    gap: 16px;
+}
+
+.AIprofile img {
+    border-radius: 50%;
+    border: 1px solid #767676;
+    box-shadow:  3px 3px 10px #9e9e9e,
+    -5px -5px 5px #ffffff;
+    overflow: hidden;
+}
+
+.AIprofile p {
+    font-size: 12px;
+    position: relative;
+    top: 8px;
+    color: #767676;
+}
+
+.AImessageBlock {
+    margin-left: 2.5em;
+}
+
+.humanProfile {
+    text-align: right;
+}
+
+.humanProfile p {
+    font-size: 12px;
+    position: relative;
+    top: 8px;
+    color: #767676;
+}
+
+.humanMessageBlock {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.humanMessageText {
+    background: #fafafa;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #d9d9d9;
+    text-align: right;
+}

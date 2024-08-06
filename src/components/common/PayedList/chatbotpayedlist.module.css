@@ -1,0 +1,29 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 2px solid black;
+	border-radius: 15px;
+	padding: 10px 20px;
+}
+
+.img {
+	width: 3rem;
+	height: 3rem;
+	padding: 10px;
+}
+
+.name {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.description {
+}
+
+.amount {
+	font-weight: bold;
+}
+
+.price {
+}

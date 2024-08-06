@@ -1,0 +1,46 @@
+.buychatbotlist {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: start;
+	padding: 1.4rem;
+}
+
+.topContainer {
+	display: flex;
+	flex-direction: row;
+}
+
+.buychatbot {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 2.2rem;
+}
+
+.txts {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	padding: 2rem;
+}
+
+.titleTxt {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+@media (max-width: 834px) {
+	.buychatbotlist > div {
+		flex: 1 1 50%;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 390px) {
+	.buychatbotlist > div {
+		flex: 1 1 100%;
+		max-width: 100%;
+	}
+}

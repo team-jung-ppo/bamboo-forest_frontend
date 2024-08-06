@@ -1,0 +1,38 @@
+.block {
+    width: 80%;
+    height: 120px;
+    margin: 0 auto;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    display: flex;
+    padding: 12px 0;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.block:hover {
+    background: #f9f9f9;
+}
+
+.check {
+    flex: 2;
+    text-align: center;
+}
+
+.main {
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    flex: 2;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.content {
+    flex: 8;
+    color: #767676;
+    font-size: 12px;
+}
