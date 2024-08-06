@@ -1,7 +1,12 @@
 import styles from './chattingContainer.module.css';
+import {useEffect, useRef} from "react";
 
-export function ChattingContainer({message, imageUrl, lastIndex}) {
-  console.log(imageUrl);
+export function ChattingContainer({messages, message, imageUrl, lastIndex}) {
+  const messageEndRef = useRef(null);
+
+  useEffect(() => {
+    messageEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   return (
     <div className={styles.block} style={{marginBottom: lastIndex ? '4em' : '0'}}>
@@ -26,6 +31,7 @@ export function ChattingContainer({message, imageUrl, lastIndex}) {
           </div>
         </>
       )}
+      <div ref={messageEndRef}></div>
     </div>
   )
 }

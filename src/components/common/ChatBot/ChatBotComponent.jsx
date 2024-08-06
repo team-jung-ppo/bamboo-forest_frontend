@@ -20,6 +20,8 @@ function ChatBotComponent(props) {
 			);
 			const userData = response.data;
 			console.log(userData);
+			alert("정상적으로 구매 완료되었습니다.");
+			window.location.reload();
 		} catch (e) {
 			if (e.response?.data.code === 'E016') {
 				alert('이미 소유한 챗봇입니다.');
