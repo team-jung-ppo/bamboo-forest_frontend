@@ -39,10 +39,10 @@ export function Layout() {
       </div>
       <div className={styles.rightSection}>
         <div className={styles.topContainer}>
-          <Header/>
+          <Header />
         </div>
         <div className={styles.outletContainer}>
-          <Outlet/>
+          <Outlet />
         </div>
       </div>
     </div>

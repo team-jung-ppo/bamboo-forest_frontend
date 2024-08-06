@@ -1,7 +1,7 @@
 import styles from './chatting.module.css';
 import {useEffect, useRef, useState} from 'react';
 import {ChattingContainer} from './ChattingContainer.jsx';
-import {useLocation, useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate, useOutletContext} from 'react-router-dom';
 import {getCookie} from '../../services/cookie.js';
 import Swal from 'sweetalert2';
 import {ChattingInput} from "./ChattingInput.jsx";
@@ -13,7 +13,7 @@ export function ChattingPage() {
   const hasAccessChecked = useRef(false);
   const location = useLocation();
   const accessToken = getCookie('accessToken');
-  const memberId = useRef(1);
+  const { memberId } = useOutletContext();
   const ws = useRef(null);
   const [messages, setMessages] = useState([]);
 
@@ -65,9 +65,10 @@ export function ChattingPage() {
             type: "AUTH",
             token: accessToken,
             roomId: location.state.roomId,
-            memberId: memberId.current++
+            memberId: memberId.current
           }));
         }
+        console.log(memberId);
       };
 
       wsInstance.onmessage = event => {
