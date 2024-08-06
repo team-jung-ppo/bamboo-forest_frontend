@@ -29,7 +29,7 @@ export function AvailableBot({ id, name, url, description, imageUrl, price }) {
   return (
     <div className={styles.block} onClick={openChatting}>
       <div className={styles.check}>
-        <CheckCircleIcon style={{ fontSize: "20px", color: "636363" }} />
+        <CheckCircleIcon style={{ fontSize: "20px", color: "#636363" }} />
       </div>
       <div className={styles.main}>
         <div className={styles.title}>{name}</div>

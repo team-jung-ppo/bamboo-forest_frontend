@@ -13,7 +13,7 @@ export function ChattingPage() {
   const hasAccessChecked = useRef(false);
   const location = useLocation();
   const accessToken = getCookie('accessToken');
-  const { memberId } = useOutletContext();
+  const memberId = useRef(1);
   const ws = useRef(null);
   const [messages, setMessages] = useState([]);
 
@@ -29,6 +29,16 @@ export function ChattingPage() {
       ws.current.send(JSON.stringify(msg));
       console.log(`보낸 메시지: ${message}`);
       setMessages((prev) => [...prev, {message, time: getCurrentTime(), type: 'human'}]);
+    }
+  }
+
+  const onLeave = () => {
+    if (ws.current && ws.current.readyState === WebSocket.OPEN) {
+      const msg = {
+        message: "연결 해제",
+        type: "LEAVE"
+      };
+      ws.current.send(JSON.stringify(msg));
     }
   }
 
@@ -78,8 +88,11 @@ export function ChattingPage() {
       };
 
       wsInstance.onclose = (error) => {
-        console.log('WebSocket closed', error);
-        setupWebSocket(wsInstance)
+        ws.current.send(JSON.stringify({
+          message: "채팅방 떠나기",
+          type: "LEAVE",
+        }));
+        console.log("연결 해제");
       };
 
       wsInstance.onerror = (error) => {
@@ -98,6 +111,10 @@ export function ChattingPage() {
 
     setupWebSocket(ws.current);
   }, []);
+
+  useEffect(() => {
+    onLeave();
+  }, [location?.state?.roomId]);
 
   return (
     <div className={styles.block}>
