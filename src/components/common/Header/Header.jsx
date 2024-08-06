@@ -7,6 +7,7 @@ import axios from 'axios';
 import { getCookie, removeCookie, setCookie } from '../../../services/cookie';
 import { useState } from 'react';
 import { Batteries } from '../Batteries/Batteries';
+import Logo from '../../../assets/bambooForestLogo.png';
 
 function Header() {
 	const [userinfo, setUserinfo] = useState([]);
@@ -94,7 +95,7 @@ function Header() {
 			<div className={styles.profile} onClick={onGoMainPage}>
 				<img
 					className={styles.profileImg}
-					src="src/assets/bambooForestLogo.png"
+					src={Logo}
 					alt="profile"
 				/>
 				<div className={styles.profileInfo}>

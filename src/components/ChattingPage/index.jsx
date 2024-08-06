@@ -73,7 +73,7 @@ export function ChattingPage() {
       wsInstance.onmessage = event => {
         console.log(event.data);
         if (event.data !== '메시지를 다시 보내주세요')
-          setMessages((prev) => [...prev, { message: event.data, time: getCurrentTime(), type: 'ai' }]);
+          setMessages((prev) => [...prev, {message: event.data, time: getCurrentTime(), type: 'ai'}]);
       };
 
       wsInstance.onclose = (error) => {
@@ -104,6 +104,7 @@ export function ChattingPage() {
         messages.map((message, index) => (
           <div key={index} className={styles.content}>
             <ChattingContainer
+              messages={messages}
               message={message}
               imageUrl={location.state.imageUrl}
               lastIndex={messages.length - 1 === index}
