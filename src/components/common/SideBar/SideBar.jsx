@@ -1,11 +1,86 @@
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import styles from './sideBar.module.css';
-import LogoImg from '../../../assets/bambooForestLogo.png';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { AvailableBot } from './AvailableBot.jsx';
+import { getCookie, removeCookie, setCookie } from '../../../services/cookie';
 import { usePurchaseChatbots } from '../../../hooks/purchaseChatbots/usePurchaseChatbots.js';
 
 export function SideBar({ open, onToggleSideBar }) {
 	const availableBots = usePurchaseChatbots();
+	const accessToken = getCookie('accessToken');
+	const [userInfo, setUserInfo] = useState([]);
+	const onLogout = async () => {
+		try {
+			const res = await axios.post(
+				`${import.meta.env.VITE_WAS_URL}/api/members/logout`,
+				null,
+				{
+					withCredentials: true,
+					headers: {
+						Authorization: `${accessToken}`,
+					},
+				},
+			);
+			if (res.status === 204) {
+				removeCookie('accessToken');
+				removeCookie('refreshToken');
+				window.location.reload();
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	const fetchUserInfo = async () => {
+		try {
+			const response = await axios.get(
+				`${import.meta.env.VITE_WAS_URL}/api/members/profile`,
+				{
+					withCredentials: true,
+					headers: {
+						Authorization: `${accessToken}`,
+					},
+				},
+			);
+			const userData = response.data;
+			setUserInfo(userData);
+		} catch (error) {
+			if (error.response && error.response.data.code === 'E003') {
+				try {
+					const refreshToken = getCookie('refreshToken');
+					const res = await axios.post(
+						`${import.meta.env.VITE_WAS_URL}/api/members/reissuance`,
+						null,
+						{
+							withCredentials: true,
+							headers: {
+								Authorization: `${refreshToken}`,
+							},
+						},
+					);
+					const { accessToken: newAccessToken, refreshToken: newRefreshToken } =
+						res.data;
+					setCookie('accessToken', newAccessToken);
+					setCookie('refreshToken', newRefreshToken);
+					fetchUserInfo();
+					return;
+				} catch (reissuanceError) {
+					console.error('Error reissuing token', reissuanceError);
+				}
+			}
+			if (axios.isAxiosError(error)) {
+				console.error('Axios error:', error.response?.data || error.message);
+			} else {
+				console.error('Unknown error:', error);
+			}
+		}
+	};
+
+	useEffect(() => {
+		fetchUserInfo();
+	}, []);
 
 	return (
 		<div
@@ -24,14 +99,7 @@ export function SideBar({ open, onToggleSideBar }) {
 					onClick={onToggleSideBar}
 				/>
 			</div>
-			<div>
-				<div className={styles.logo} style={{ textAlign: 'center' }}>
-					<img
-						src={LogoImg}
-						alt="logo"
-						style={{ width: '84px', height: '84px' }}
-					/>
-				</div>
+			<div className={styles.sidebarList}>
 				<p className={styles.title}>사용 가능한 상담봇</p>
 				<div className={styles.content}>
 					{availableBots &&
@@ -46,6 +114,29 @@ export function SideBar({ open, onToggleSideBar }) {
 								price={bot.chatBotItem.price}
 							/>
 						))}
+				</div>
+				<div className={styles.userProfile}>
+					{!accessToken ? (
+						<div className={styles.userprofile}></div>
+					) : (
+						<div className={styles.userprofile}>
+							<img src={userInfo.profileImage} alt="profileImg" />
+							<div className={styles.userName}>{userInfo.username}</div>
+						</div>
+					)}
+				</div>
+				<div className={styles.loginoutbtn}>
+					{!accessToken ? (
+						<div className={styles.authButton}>
+							<Link to="/login">
+								<button>로그인</button>
+							</Link>
+						</div>
+					) : (
+						<div className={styles.authButton}>
+							<button onClick={onLogout}>로그아웃</button>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
