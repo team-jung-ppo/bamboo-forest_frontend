@@ -3,7 +3,7 @@
 
 # 🎋 대나무숲 🎋
 
-- 배포 URL : http://ec2-3-27-33-141.ap-southeast-2.compute.amazonaws.com:
+- 배포 URL : 
 
 <br />
 
@@ -87,6 +87,7 @@
 
 ## 2. 프로젝트 구조
 
+![image](https://github.com/user-attachments/assets/06a5d743-a2c6-48fb-badd-78f5bf304eed)
 
 
 <br>
