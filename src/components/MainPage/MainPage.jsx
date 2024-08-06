@@ -15,7 +15,7 @@ const MainPage = () => {
 						"반신반의로 사용했는데, 마음속 나 자신을 이제야 이해하게 되었어요!"
 					</div>
 				</div>
-				<div className={styles.articleBox}>
+				<div className={styles.articleBox} id={styles.delete}>
 					<div className={styles.name}>김OO 님</div>
 					<div className={styles.content}>
 						"힘든 일을 잘 털어둘 곳이 없는데, 정말 따듯함을 느끼게 되는 거

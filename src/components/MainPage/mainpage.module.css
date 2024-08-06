@@ -45,3 +45,39 @@
 	font-size: 2rem;
 	font-weight: 600;
 }
+
+@media (max-width: 700px) {
+	.titleTxt {
+		font-weight: 600;
+		font-size: 2em;
+	}
+	.name,
+	.content {
+		font-size: 0.6rem;
+	}
+	.articles {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 2fr 1fr 1fr 1fr;
+	}
+	.articleBox {
+		font-size: 0.6rem;
+	}
+	#delete {
+		display: none;
+	}
+	.lastcomment {
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-width: 400px) {
+	.articles {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+	.lastcomment {
+		font-size: 1rem;
+	}
+}
